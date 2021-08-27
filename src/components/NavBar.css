@@ -1,0 +1,23 @@
+html{
+    font-size:15px;
+}
+
+a{
+    text-decoration: none;
+}
+.navBar{
+    background-color: #A9FFCB;
+}
+.navBar__logo{
+    width:150px;
+    height:150px;
+}
+header{
+    display: flex;
+    justify-content: center;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
