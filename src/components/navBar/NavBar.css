@@ -1,0 +1,36 @@
+.clickable{
+    text-decoration: none;
+    color:antiquewhite;
+}
+.clickable:hover{
+    color:lightgrey;
+}
+.row{
+    max-width: 100%;
+}
+.navBar{
+    background-color: black;
+    padding: 0px 50px 0px 50px;
+}
+.logo{
+    width:150px;
+    height:150px;
+}
+header{
+    display: flex;
+    justify-content: flex-start;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.link{
+    margin:30px;
+}
+
+.icon{
+    display:flex;
+    align-items: center;
+    justify-content: flex-end;
+}
