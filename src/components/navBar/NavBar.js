@@ -1,9 +1,8 @@
-import React from 'react';
 import Logo from '../../assets/logo.png';
 import CartWidget from '../cartWidget/CartWidget';
 import './NavBar.css';
 
-const NavBar = () =>{
+const NavBar = (props) =>{
     return(
         <div className='navBar'>
             <div className="row">
@@ -19,10 +18,11 @@ const NavBar = () =>{
                     <a href='/' className="clickable link">Contacto</a>
                 </nav>
                 <div className="icon col-3">
-                    <CartWidget />
+                    <CartWidget cartItems={props.cartItems}/>
                 </div>
             </div>
         </div>
+        
     )
 }
 
