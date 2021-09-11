@@ -1,0 +1,13 @@
+.itemList{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading{
+    height:100vh;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}

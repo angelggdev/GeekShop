@@ -2,7 +2,6 @@ import {useState} from 'react';
 import './App.css';
 import NavBar from './components/navBar/NavBar';
 import ItemListContainer from './components/itemListContainer/ItemListContainer';
-import ItemCount from './components/itemCount/ItemCount';
 
 function App() {
 
@@ -23,12 +22,12 @@ function App() {
     setCartItems( cartItems + 1 );
   }
 
+  
+
   return (
     <div className="App">
       <NavBar cartItems={cartItems}/>
-      <ItemListContainer >
-        <ItemCount counter={counter} onAdd={onAdd} addToCart={addToCart}/>
-      </ItemListContainer>
+      <ItemListContainer counter={counter} onAdd={onAdd} addToCart={addToCart} />
     </div>
   );
 }

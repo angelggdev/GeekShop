@@ -1,10 +1,11 @@
 import './ItemListContainer.css';
+import ItemList from './ItemList/ItemList.js';
 
 const ItemListContainer = (props) =>{
     return(
         <div className="container">
             <div>
-                {props.children}
+                <ItemList counter={props.counter} onAdd={props.onAdd} addToCart={props.addToCart}/>
             </div>
             
         </div>

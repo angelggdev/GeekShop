@@ -1,0 +1,16 @@
+.button:focus{
+    box-shadow: none;
+} 
+.button:hover{
+    background: radial-gradient(whitesmoke, white);
+}
+
+.counter{
+    display:flex;
+    justify-content: space-around;
+}
+
+p{
+    margin:0;
+    padding:12px;
+}
