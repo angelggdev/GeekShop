@@ -15,6 +15,7 @@
     grid-area:title;
     height:50px;
     text-align: center;
+    font-weight: bold;
 }
 .imageContainer{
     grid-area:image;
@@ -23,6 +24,7 @@
 }
 .price{
     grid-area:price;
+    font-weight: bold;
 }
 .detailsButton{
     grid-area:detailsButton;

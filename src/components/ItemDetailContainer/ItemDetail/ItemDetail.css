@@ -1,0 +1,51 @@
+.box{
+    color:black;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.itemDetail{
+    display:grid;
+    width:800px;
+    grid-template-areas: 
+    "title title"
+    "image description"
+    "image description"
+    "image price"
+    "image buttons";
+    margin:20px;
+    justify-items: center;
+}
+.titleDetail{
+    grid-area:title;
+    height:50px;
+    text-align: center;
+    font-weight: bold;
+}
+.descriptionDetail{
+    grid-area:description;
+    font-size: medium;
+}
+.imageContainerDetail{
+    grid-area:image;
+    width:400px;
+    height:400px;
+}
+.priceDetail{
+    grid-area:price;
+    font-weight: bold;
+}
+.buttons{
+    grid-area:buttons;
+    display:flex;
+    flex-direction: column;
+}
+
+.imageDetail{
+    border-radius:10px;
+    width:inherit;
+}
+
+hr{
+    margin-bottom:0px;
+}

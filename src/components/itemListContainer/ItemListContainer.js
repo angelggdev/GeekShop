@@ -5,7 +5,12 @@ const ItemListContainer = (props) =>{
     return(
         <div className="container">
             <div>
-                <ItemList counter={props.counter} onAdd={props.onAdd} addToCart={props.addToCart}/>
+                <ItemList 
+                    counter={props.counter} 
+                    onAdd={props.onAdd} 
+                    addToCart={props.addToCart} 
+                    seeDetailsView={props.seeDetailsView}
+                />
             </div>
             
         </div>

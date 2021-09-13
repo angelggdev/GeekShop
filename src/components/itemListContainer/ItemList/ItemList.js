@@ -71,12 +71,13 @@ const ItemList = (props) =>{
                             counter={props.counter} 
                             onAdd={props.onAdd} 
                             addToCart={props.addToCart}
+                            seeDetailsView={props.seeDetailsView}
+                            id={x.id}
                             title={x.title}
                             price={x.price}
                             pictureUrl={x.pictureUrl}
-                        >
-
-                        </Item>
+                            seeDetails={props.seeDetails}
+                        />
                     )
                 })
                 :

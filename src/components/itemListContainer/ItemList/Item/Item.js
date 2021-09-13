@@ -11,7 +11,7 @@ const Item = (props) =>{
                 <img src={props.pictureUrl} className="image" alt="article"/>
             </div>
             <h6 className="price">{props.price}</h6>
-            <button className="detailsButton btn btn-secondary">Ver Detalles</button>
+            <button className="detailsButton btn btn-secondary" onClick={() => {props.seeDetailsView(props.id)}}>Ver Detalles</button>
             <div>
                 <hr />
                 <ItemCount className="itemCount" counter={props.counter} onAdd={props.onAdd} addToCart={props.addToCart}/>
