@@ -1,5 +1,6 @@
 import './Item.css';
 import ItemCount from './itemCount/ItemCount';
+import { Link } from 'react-router-dom';
 
 const Item = (props) =>{
 
@@ -11,7 +12,7 @@ const Item = (props) =>{
                 <img src={props.pictureUrl} className="image" alt="article"/>
             </div>
             <h6 className="price">{props.price}</h6>
-            <button className="detailsButton btn btn-secondary" onClick={() => {props.seeDetailsView(props.id)}}>Ver Detalles</button>
+            <Link to={`/item/${props.id}`} className="detailsButton btn btn-secondary">Ver Detalles</Link>
             <div>
                 <hr />
                 <ItemCount className="itemCount" counter={props.counter} onAdd={props.onAdd} addToCart={props.addToCart}/>

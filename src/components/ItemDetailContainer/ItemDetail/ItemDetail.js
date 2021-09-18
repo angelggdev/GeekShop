@@ -1,5 +1,6 @@
 import './ItemDetail.css';
 import ItemCount from '../../itemListContainer/ItemList/Item/itemCount/ItemCount';
+import { Link } from 'react-router-dom';
 
 const Item = (props) =>{
 
@@ -15,8 +16,8 @@ const Item = (props) =>{
                     <p>{props.description}</p>
                 </div>
                 <h6 className="priceDetail">{props.price}</h6>
-                <div class="buttons">
-                <button className="detailsButtonDetail btn btn-secondary" onClick={props.seeDetailsView}>Menos Detalles</button>
+                <div className="buttons">
+                <Link to='/' className="detailsButtonDetail btn btn-secondary">Menos Detalles</Link>
                     <div>
                         <hr />
                         <ItemCount className="itemCountDetail" counter={props.counter} onAdd={props.onAdd} addToCart={props.addToCart}/>

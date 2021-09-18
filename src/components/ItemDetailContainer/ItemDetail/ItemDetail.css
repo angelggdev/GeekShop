@@ -30,6 +30,9 @@
     grid-area:image;
     width:400px;
     height:400px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
 }
 .priceDetail{
     grid-area:price;
@@ -43,7 +46,8 @@
 
 .imageDetail{
     border-radius:10px;
-    width:inherit;
+    max-width:400px;
+    max-height:400px;
 }
 
 hr{

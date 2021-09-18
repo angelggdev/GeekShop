@@ -1,0 +1,22 @@
+.footer{
+    background-color: black;
+    color:white;
+}
+
+a{
+    text-decoration: none;
+    color:white;
+}
+
+ul{
+    list-style-type: none;
+    margin-bottom: 0;
+}
+.socialMedia{
+    display:flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+li{
+    margin:10px;
+}

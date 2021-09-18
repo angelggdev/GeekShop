@@ -34,3 +34,36 @@ nav{
     align-items: center;
     justify-content: flex-end;
 }
+
+.categories{
+    background-color: black;
+    border:none;
+}
+.categories:focus{
+    border:none;
+    box-shadow:none;
+    background-color:black;
+    color:antiquewhite;
+}
+.categories:hover{
+    border:none;
+    box-shadow:none;
+    background-color:black;
+    color:lightgrey;
+}
+.categories:active{
+    background-color:black;
+    color:antiquewhite;
+}
+.categories:focus-visible{
+    border:none;
+}
+.dropdownMenu{
+    background-color:black;
+}
+.dropdownItem:hover{
+    background-color:rgb(48, 48, 48);
+}
+.current{
+    text-decoration: underline;
+}
