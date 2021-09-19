@@ -16,8 +16,7 @@ const NavBar = (props) =>{
                 </header>
                 <nav className="col-6">
                     <NavLink exact to='/' activeClassName='current' className="clickable link">Inicio</NavLink>
-                    <NavLink to='/novedades' activeClassName='current' className="clickable link" >Novedades</NavLink>
-                    <NavLink to='/about' activeClassName='current' className="clickable link">Sobre Nosotros</NavLink>
+                    <NavLink to='/about' activeClassName='current' className="clickable link">Nosotros</NavLink>
                     <Dropdown>
                         <Dropdown.Toggle variant="dark" className="categories clickable" id="dropdown-basic">
                             Categorías  
