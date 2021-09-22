@@ -8,19 +8,22 @@ const Item = (props) =>{
     return(
         <div className="box">
             <div className="itemDetail" >
-                <h5 className="titleDetail">{props.title}</h5>
+                <h5 className="titleDetail">{props.product.title}</h5>
                 <div className="imageContainerDetail">
-                    <img src={props.pictureUrl} className="imageDetail" alt="article"/>
+                    <img src={props.product.pictureUrl} className="imageDetail" alt="article"/>
                 </div>
                 <div className="descriptionDetail">
-                    <p>{props.description}</p>
+                    <p>{props.product.description}</p>
                 </div>
-                <h6 className="priceDetail">{props.price}</h6>
+                <h6 className="priceDetail">{props.product.price}</h6>
                 <div className="buttons">
                 <Link to='/' className="detailsButtonDetail btn btn-secondary">Menos Detalles</Link>
                     <div>
                         <hr />
-                        <ItemCount className="itemCountDetail" counter={props.counter} onAdd={props.onAdd} addToCart={props.addToCart}/>
+                        <ItemCount className="itemCountDetail" 
+                            addToCart={props.addToCart}
+                            product={props.product}
+                        />
                     </div> 
                 </div>        
             </div>

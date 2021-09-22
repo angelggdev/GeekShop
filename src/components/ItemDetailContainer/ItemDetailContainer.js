@@ -22,14 +22,13 @@ const ItemDetailContainer = (props) =>{
             {
                 productView !== undefined?
                 <ItemDetail 
-                    counter={props.counter} 
-                    onAdd={props.onAdd} 
                     addToCart={props.addToCart} 
-                    id={productView.id}
+                    product={productView}
+                    /* id={productView.id}
                     title={productView.title}
                     description={productView.description}
                     price={productView.price}
-                    pictureUrl={productView.pictureUrl}
+                    pictureUrl={productView.pictureUrl} */
                 />
                 :
                 <div className="loading">

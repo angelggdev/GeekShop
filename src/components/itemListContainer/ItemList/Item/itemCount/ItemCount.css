@@ -10,7 +10,17 @@
     justify-content: space-around;
 }
 
-p{
+span{
     margin:0;
     padding:12px;
+}
+
+p{
+    text-align: center;
+}
+
+.addToCart{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

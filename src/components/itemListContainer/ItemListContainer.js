@@ -10,6 +10,7 @@ const ItemListContainer = (props) =>{
 
     
     useEffect(()=>{
+        //cuando cambio categoryId se dispara la promesa luego de renderizar la app
         new Promise((resolve)=>{
             setTimeout(() => {
                 resolve(props.products);
@@ -30,18 +31,17 @@ const ItemListContainer = (props) =>{
             }
         })
         return () =>{
+            //cuando cambia categoryId se dispara un re-render de la app
             setItemList([]);
         }
     }, [categoryId]) 
     
 
     return(
-        <div className="container">
+        <div className="container-fluid">
             <div>
                 <ItemList 
                     itemList={itemList}
-                    counter={props.counter} 
-                    onAdd={props.onAdd} 
                     addToCart={props.addToCart} 
                 />
             </div>
