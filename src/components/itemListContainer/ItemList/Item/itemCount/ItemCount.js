@@ -1,13 +1,13 @@
 import './ItemCount.css';
-import { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
+import CartContext from '../../../../../context/cartContext';
+import { Link } from 'react-router-dom'; 
 
 const ItemCount = (props) =>{
+    const { functions } = useContext(CartContext);
     const [counter, setCounter] = useState(1);
-    const [cartProducts, setCartProducts] = useState([]);
-
-    let productsToAdd = [];
 
     const onAdd = (operation) => {
         if (operation === "add" && counter < props.product.stock){
@@ -18,38 +18,40 @@ const ItemCount = (props) =>{
         }
     }
 
-    const addItemToCart = () => {
-        props.addToCart();
-        productsToAdd.push({...props.product, 'quantity':counter});
-        console.log(productsToAdd);
-        setCartProducts(productsToAdd);
-    }
+    const addProduct = () => {
+        const newProduct = {
+            ...props.product,
+            'quantity':counter
+        }
+        functions.addItems(newProduct);
+    } 
 
     return(
         <div>
-            <div className="counter">
-                {   
-                    cartProducts.length === 0?
+            {
+                !functions.isInCart(props.product.id) ?
+                <>
                     <div className="counter">
-                        <button className="button btn" onClick={()=> {onAdd("substract")}} disabled={counter === 1? true : false} >
-                            <FontAwesomeIcon icon={faMinus} size='xs' fixedWidth color={counter === 1 ? 'grey' : 'red'}/>
-                        </button>
-                        <span>{counter}</span>
-                        <button className="button btn" onClick={()=> {onAdd("add")}} disabled={counter === props.product.stock? true : false} >
-                            <FontAwesomeIcon icon={faPlus} size='xs' fixedWidth color={counter === props.product.stock ? 'grey' : 'green'}/>
-                        </button>
+                        <div className="counter">
+                            <button className="button btn" onClick={()=> {onAdd("substract")}} disabled={counter === 1? true : false} >
+                                <FontAwesomeIcon icon={faMinus} size='xs' fixedWidth color={counter === 1 ? 'grey' : 'red'}/>
+                            </button>
+                            <span>{counter}</span>
+                            <button className="button btn" onClick={()=> {onAdd("add")}} disabled={counter === props.product.stock? true : false} >
+                                <FontAwesomeIcon icon={faPlus} size='xs' fixedWidth color={counter === props.product.stock ? 'grey' : 'green'}/>
+                            </button>
+                        </div>
                     </div>
-                    :
-                    <div>
-                        <p>
-                            ¡Continúa al carrito para finalizar tu compra!
-                        </p>
+                    <div className="addToCart">
+                        <button className="btn btn-dark" onClick={addProduct} >Agregar al carrito</button>
                     </div>
-                }
-            </div>
-            <div className="addToCart">
-                <button className="btn btn-dark" onClick={addItemToCart} >Agregar al carrito</button>
-            </div>
+                </>
+                :
+                <div className="addToCart">
+                    <Link to='/cart' className="btn btn-dark" >Terminar mi compra</Link>
+                </div>
+
+            }
         </div>
     )
   

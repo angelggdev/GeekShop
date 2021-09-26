@@ -1,0 +1,18 @@
+.cartContainer{
+    height:100vh;
+}
+
+h1{
+    margin:40px;
+}
+
+h2{
+    text-align: center;
+}
+
+.cartLink{
+    color:black;
+}
+.cartLink:hover{
+    color:grey;
+}

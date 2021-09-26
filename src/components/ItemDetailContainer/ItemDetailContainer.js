@@ -15,20 +15,14 @@ const ItemDetailContainer = (props) =>{
             }
         )
         .then((res) => setProductView(res[id]))
-      }, [])
+    }, [])
 
     return(
         <div className="container">
             {
                 productView !== undefined?
                 <ItemDetail 
-                    addToCart={props.addToCart} 
                     product={productView}
-                    /* id={productView.id}
-                    title={productView.title}
-                    description={productView.description}
-                    price={productView.price}
-                    pictureUrl={productView.pictureUrl} */
                 />
                 :
                 <div className="loading">

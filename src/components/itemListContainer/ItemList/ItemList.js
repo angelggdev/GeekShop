@@ -12,12 +12,7 @@ const ItemList = (props) =>{
                     return(
                         <Item 
                             key={x.id}
-                            addToCart={props.addToCart}
                             product={x}
-                            /* id={x.id}
-                            title={x.title}
-                            price={x.price}
-                            pictureUrl={x.pictureUrl} */
                         />
                     )
                 })

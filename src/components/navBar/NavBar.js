@@ -25,10 +25,8 @@ const NavBar = (props) =>{
                             {
                                 props.categories.map((x, i) =>{
                                     return(
-                                        <Dropdown.Item key={i} className="dropdownItem"> 
-                                            <NavLink to={`/categories/${x.id}`} activeClassName='current' className="clickable">
-                                                {x.category}
-                                            </NavLink>
+                                        <Dropdown.Item as={NavLink} key={i} to={`/categories/${x.id}`} activeClassName='current' className="dropdownItem clickable"> 
+                                            {x.category}
                                         </Dropdown.Item>
                                     )
                                 })
@@ -38,7 +36,7 @@ const NavBar = (props) =>{
                      <NavLink to='/contacto' activeClassName='current' className="clickable link">Contacto</NavLink>
                 </nav>
                 <div className="icon col-3">
-                    <CartWidget cartItems={props.cartItems}/>
+                    <CartWidget/>
                 </div>
             </div>
         </div>

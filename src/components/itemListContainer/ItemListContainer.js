@@ -42,10 +42,8 @@ const ItemListContainer = (props) =>{
             <div>
                 <ItemList 
                     itemList={itemList}
-                    addToCart={props.addToCart} 
                 />
             </div>
-            
         </div>
     )
 }

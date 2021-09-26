@@ -15,7 +15,7 @@ const Item = (props) =>{
                 <div className="descriptionDetail">
                     <p>{props.product.description}</p>
                 </div>
-                <h6 className="priceDetail">{props.product.price}</h6>
+                <h6 className="priceDetail">${props.product.price}</h6>
                 <div className="buttons">
                 <Link to='/' className="detailsButtonDetail btn btn-secondary">Menos Detalles</Link>
                     <div>

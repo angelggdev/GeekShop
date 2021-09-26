@@ -3,6 +3,7 @@ import ItemCount from './itemCount/ItemCount';
 import { Link } from 'react-router-dom';
 
 const Item = (props) =>{
+    
 
 
     return(
@@ -11,11 +12,11 @@ const Item = (props) =>{
             <div className="imageContainer">
                 <img src={props.product.pictureUrl} className="image" alt="article"/>
             </div>
-            <h6 className="price">{props.product.price}</h6>
+            <h6 className="price">${props.product.price}</h6>
             <Link to={`/item/${props.product.id}`} className="detailsButton btn btn-secondary">Ver Detalles</Link>
             <div>
                 <hr />
-                <ItemCount className="itemCount" addToCart={props.addToCart} product={props.product}/>
+                <ItemCount className="itemCount" product={props.product}/>
             </div>            
         </div>
     )
