@@ -34,11 +34,13 @@ const Cart = () => {
                     }
                     <div>
                         <h3>Precio Total: <strong>${totalPrice}</strong></h3>
-                        <button className="btn btn-dark" onClick={functions.clear}>Limpiar</button>
+                        <button className="cartButton btn btn-dark" onClick={functions.clear}>Limpiar</button>
+                        <br />
+                        <Link to='/' className="cartButton btn btn-dark">Agregar más productos</Link>
                     </div>
                 </div>
                 :
-                <h2>Tu carrito está vacío, ir al <Link to='/' className="cartLink">Inicio</Link></h2>
+                <h2>Tu carrito está vacío, <Link to='/' className="cartLink">agregar productos</Link>.</h2>
             }
         </div>
     )

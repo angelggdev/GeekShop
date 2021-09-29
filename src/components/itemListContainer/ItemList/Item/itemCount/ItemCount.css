@@ -18,9 +18,3 @@ span{
 p{
     text-align: center;
 }
-
-.addToCart{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}

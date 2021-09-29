@@ -1,5 +1,5 @@
 .cartContainer{
-    height:100vh;
+    min-height:100vh;
 }
 
 h1{
@@ -15,4 +15,8 @@ h2{
 }
 .cartLink:hover{
     color:grey;
+}
+
+.cartButton, h3{
+    margin:10px;
 }

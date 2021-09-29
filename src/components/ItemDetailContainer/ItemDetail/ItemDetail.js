@@ -1,9 +1,14 @@
 import './ItemDetail.css';
 import ItemCount from '../../itemListContainer/ItemList/Item/itemCount/ItemCount';
 import { Link } from 'react-router-dom';
+import {useState} from 'react';
 
 const Item = (props) =>{
+    const [isAdded, setIsAdded] = useState(false);
 
+    const goToCart = () => {
+        setIsAdded(true);
+    }
 
     return(
         <div className="box">
@@ -20,10 +25,18 @@ const Item = (props) =>{
                 <Link to='/' className="detailsButtonDetail btn btn-secondary">Menos Detalles</Link>
                     <div>
                         <hr />
-                        <ItemCount className="itemCountDetail" 
-                            addToCart={props.addToCart}
-                            product={props.product}
-                        />
+                        {
+                            !isAdded?
+                            <ItemCount className="itemCountDetail" 
+                                addToCart={props.addToCart}
+                                product={props.product}
+                                goToCart={goToCart}
+                            />
+                            :
+                            <div className="addToCart">
+                                <Link to='/cart' className="btn btn-dark" >Terminar mi compra</Link>
+                            </div>
+                        }
                     </div> 
                 </div>        
             </div>
