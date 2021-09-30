@@ -15,7 +15,7 @@ const Item = (props) =>{
             <div className="itemDetail" >
                 <h5 className="titleDetail">{props.product.title}</h5>
                 <div className="imageContainerDetail">
-                    <img src={props.product.pictureUrl} className="imageDetail" alt="article"/>
+                    <img src={props.product.pictureUrl} className="imageDetail" alt={props.product.title}/>
                 </div>
                 <div className="descriptionDetail">
                     <p>{props.product.description}</p>
@@ -27,8 +27,7 @@ const Item = (props) =>{
                         <hr />
                         {
                             !isAdded?
-                            <ItemCount className="itemCountDetail" 
-                                addToCart={props.addToCart}
+                            <ItemCount className="itemCountDetail"
                                 product={props.product}
                                 goToCart={goToCart}
                             />

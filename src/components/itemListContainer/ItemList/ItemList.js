@@ -7,7 +7,7 @@ const ItemList = (props) =>{
     return(
         <div className="itemList">
             {
-                props.itemList.length !== 0?
+                props.itemList.length !== 0 &&
                 props.itemList.map((x, i) =>{
                     return(
                         <Item 
@@ -16,13 +16,6 @@ const ItemList = (props) =>{
                         />
                     )
                 })
-                :
-                <div className="loading">
-                    <div className="spinner-border " role="status">
-                        <span className="sr-only">Loading...</span>
-                    </div>
-                </div>
-            
             }
         </div>
         

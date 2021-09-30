@@ -2,25 +2,36 @@ import './ItemDetailContainer.css';
 import ItemDetail from './ItemDetail/ItemDetail.js';
 import {useState, useEffect} from 'react';
 import { useParams } from 'react-router';
+import { db } from '../../services/firebase/firebase';
+import { doc, getDoc } from 'firebase/firestore'; 
 
 const ItemDetailContainer = (props) =>{
     const {id} = useParams();
     const [productView, setProductView] = useState();
+    const [loading, setLoading] = useState(true);
 
     useEffect(()=>{
-        new Promise((resolve)=>{
-            setTimeout(() => {
-                resolve(props.products);
-            }, 2000)
-            }
-        )
-        .then((res) => setProductView(res[id]))
+        setLoading(true);
+        getDoc(doc(db, 'items', id))
+        .then((querySnapshot) => {
+            const product = { id: querySnapshot.id, ...querySnapshot.data()}
+            console.log(product) 
+            setProductView(product); 
+        })
+        .catch((error) => {
+            console.log('Error searching items', error);
+        })
+        .finally(() => {
+            setLoading(false); 
+        })
     }, [])
+
+    
 
     return(
         <div className="container">
             {
-                productView !== undefined?
+                !loading?
                 <ItemDetail 
                     product={productView}
                 />

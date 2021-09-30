@@ -2,48 +2,65 @@ import './ItemListContainer.css';
 import ItemList from './ItemList/ItemList.js';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
-
+import { db } from '../../services/firebase/firebase';
+import { collection, getDocs, query, where } from 'firebase/firestore'; 
 
 const ItemListContainer = (props) =>{
     const [itemList, setItemList] = useState([]);
-    const {categoryId} = useParams();
+    const [loading, setLoading] = useState(true);
+    const {categoryName} = useParams();
 
-    
-    useEffect(()=>{
-        //cuando cambio categoryId se dispara la promesa luego de renderizar la app
-        new Promise((resolve)=>{
-            setTimeout(() => {
-                resolve(props.products);
-            }, 2000)
+    useEffect(() => {
+        if(!categoryName){
+            setLoading(true);
+            getDocs(collection(db, 'items'))
+            .then((querySnapshot) => {
+                const products = querySnapshot.docs.map(doc => {
+                    return {id: doc.id, ...doc.data()}
+                })
+                setItemList(products);
+            })
+            .catch((error) => {
+                console.log('Error searching items', error);
+            })
+            .finally(() => {
+                setLoading(false);
+            })
+        } else {
+            setLoading(true);
+            getDocs(query(collection(db, 'items'), where('category', '==', categoryName)))
+            .then((querySnapshot) => { 
+                const products = querySnapshot.docs.map(doc => {
+                    return {id: doc.id, ...doc.data()}
+                })
+                setItemList(products);
+            })
+            .catch((error) => {
+                console.log('Error searching items', error);
+            })
+            .finally(() => {
+                setLoading(false);
+            })
         }
-        )
-        .then((res) => {
-            if(!categoryId){
-                setItemList(res);
-            } else {
-                let categoryList = [];
-                for (let index = 0; index < res.length; index++) {
-                    if (res[index].categoryId === parseInt(categoryId)){
-                        categoryList.push(res[index]);
-                    }
-                }
-                setItemList(categoryList)
-            }
-        })
-        return () =>{
-            //cuando cambia categoryId se dispara un re-render de la app
-            setItemList([]);
-        }
-    }, [categoryId]) 
+    }, [categoryName]); 
     
 
     return(
         <div className="container-fluid">
-            <div>
-                <ItemList 
-                    itemList={itemList}
-                />
-            </div>
+            {   
+                !loading?
+                <div>
+                    <ItemList 
+                        itemList={itemList}
+                    />
+                </div>
+                :
+                <div className="loading">
+                    <div className="spinner-border " role="status">
+                        <span className="sr-only">Loading...</span>
+                    </div>
+                </div>
+            }
         </div>
     )
 }

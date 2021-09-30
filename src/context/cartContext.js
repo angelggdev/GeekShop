@@ -18,24 +18,6 @@ export const CartProvider = ({children}) => {
         return itemIsInCart;
     }
 
-    const addItems = (item) => {
-        if (!isInCart(item.id)){
-            let cartList = cartItems;
-            cartList.push(item);
-            setCartItems(cartList);
-            setBadge(badge + item.quantity);
-        } else {
-            let cartList = cartItems;
-            for (let i = 0; i < cartList.length; i++) {
-                if(cartList[i].id = item.id){
-                    cartList[i].quantity += item.quantity;
-                }
-            }
-            setCartItems(cartList);
-            setBadge(badge + item.quantity);
-        }
-    }
-
     const removeItem = (itemId) => {
         let cartList = [];
         let quantity ;
@@ -60,13 +42,14 @@ export const CartProvider = ({children}) => {
         <CartContext.Provider
             value={{
                 functions:{
-                addItems,
                 removeItem,
                 clear,
-                isInCart
+                isInCart,
+                setCartItems,
+                setBadge
                 },
                 badge,
-                cartItems,
+                cartItems
             }}
         >
             {children}

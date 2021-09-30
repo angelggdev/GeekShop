@@ -14,7 +14,7 @@ const Item = (props) =>{
         <div className="item" >
             <h5 className="title">{props.product.title}</h5>
             <div className="imageContainer">
-                <img src={props.product.pictureUrl} className="image" alt="article"/>
+                <img src={props.product.pictureUrl} className="image" alt={props.product.title}/>
             </div>
             <h6 className="price">${props.product.price}</h6>
             <Link to={`/item/${props.product.id}`} className="detailsButton btn btn-secondary">Ver Detalles</Link>

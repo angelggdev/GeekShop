@@ -1,0 +1,29 @@
+.about{
+    margin:40px;
+    min-height:80vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.aboutImage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:100%;
+    width:100%;
+}
+
+.teamPicture{
+    margin:40px;
+    max-height: 620px;
+    max-width: 430px;
+}
+
+.text{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    text-align:right;
+    padding:50px;
+} 

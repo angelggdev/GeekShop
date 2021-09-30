@@ -1,13 +1,17 @@
 import './ItemCount.css';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import CartContext from '../../../../../context/cartContext';
-import { Link } from 'react-router-dom'; 
 
 const ItemCount = (props) =>{
-    const { functions } = useContext(CartContext);
+    const { functions, cartItems, badge } = useContext(CartContext);
     const [counter, setCounter] = useState(1);
+    const [itemIsInCart, setItemIsInCart] = useState(false); 
+
+    useEffect(() => {
+        setItemIsInCart(functions.isInCart(props.product.id));
+    }, []) 
 
     const onAdd = (operation) => {
         if (operation === "add" && counter < props.product.stock){
@@ -23,9 +27,22 @@ const ItemCount = (props) =>{
             ...props.product,
             'quantity':counter
         }
-        functions.addItems(newProduct);
+        if (!itemIsInCart){
+            let cartList = cartItems;
+            cartList.push(newProduct);
+            functions.setCartItems(cartList); 
+        } else {
+            let cartList = cartItems;
+            for (let i = 0; i < cartList.length; i++) {
+                if(cartList[i].id === newProduct.id){
+                    cartList[i].quantity =  cartList[i].quantity + counter;
+                }
+            }
+            functions.setCartItems(cartList);
+        }
+        functions.setBadge(badge + newProduct.quantity)
         props.goToCart();
-    } 
+    }  
 
     return(
         <div>
