@@ -12,25 +12,11 @@ import Contact from './components/contact/Contact';
 
 function App() {
 
-  const categories = [
-    {
-      category:"Cine-TV",
-      id:0
-    },
-    {
-      category:"Juegos de Mesa",
-      id:1
-    },
-    {
-      category:"Videojuegos",
-      id:2
-    }
-  ]
 
   return (
     <BrowserRouter className="App">
       <CartProvider>
-        <NavBar categories={categories}/>
+        <NavBar/>
         <Switch>
           <Route exact path="/">
             <ItemListContainer 

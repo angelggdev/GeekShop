@@ -1,10 +1,33 @@
 import Logo from '../../assets/logo.png';
 import CartWidget from '../cartWidget/CartWidget';
 import './NavBar.css';
+import { useEffect, useState } from 'react';
 import { Dropdown } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
+import { db } from '../../services/firebase/firebase';
+import { collection, getDocs } from 'firebase/firestore'; 
 
-const NavBar = (props) =>{
+const NavBar = () =>{
+
+    const [loading, setLoading] = useState(true);
+    const [categories, setCategories] = useState([]);
+
+    useEffect(() => {
+        getDocs(collection(db, 'categories'))
+        .then((querySnapshot) => {
+            const categoryList = querySnapshot.docs.map(doc => {
+                return {id: doc.id, ...doc.data()}
+            })
+            setCategories(categoryList);
+        })
+        .catch((error) => {
+            console.log('Error searching items', error);
+        })
+        .finally(() => {
+            setLoading(false);
+        })
+    })
+
 
     return(
         <div className='navBar'>
@@ -23,13 +46,18 @@ const NavBar = (props) =>{
                         </Dropdown.Toggle>
                         <Dropdown.Menu className="dropdownMenu">
                             {
-                                props.categories.map((x, i) =>{
+                                !loading?
+                                categories.map((x, i) =>{
                                     return(
-                                        <Dropdown.Item as={NavLink} key={i} to={`/categories/${x.category}`} activeClassName='current' className="dropdownItem clickable"> 
-                                            {x.category}
+                                        <Dropdown.Item as={NavLink} key={x.id} to={`/categories/${x.name}`} activeClassName='current' className="dropdownItem clickable"> 
+                                            {x.name}
                                         </Dropdown.Item>
                                     )
                                 })
+                                :
+                                <Dropdown.Item className="dropdownItem clickable">
+                                    <p>Loading...</p>
+                                </Dropdown.Item>
                             } 
                         </Dropdown.Menu>
                     </Dropdown>
