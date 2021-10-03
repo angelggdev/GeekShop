@@ -6,18 +6,18 @@ const Footer = () =>{
     return(
         <div className='footer'>
             <footer className="row">
-                <ul className="col-md-6">
+                <ul className="contactData col-md-6">
                     <li className="d-inline-block">
                         <FontAwesomeIcon icon={faMapMarkerAlt} size='lg' fixedWidth color='antiquewhite' className="d-inline-block"/>
-                        <p className="d-inline-block">Córdoba, Argentina</p>
+                        <p className="textoFooter d-inline-block">Córdoba, Argentina</p>
                     </li>
                     <li className="d-inline-block">
                         <FontAwesomeIcon icon={faPhone} size='lg' fixedWidth color='antiquewhite' className="d-inline-block"/>
-                        <p className="d-inline-block">3515555555</p>
+                        <p className="textoFooter d-inline-block">3515555555</p>
                     </li>
                     <li className="d-inline-block">
                         <FontAwesomeIcon icon={faEnvelope} size='lg' fixedWidth color='antiquewhite' className="d-inline-block"/>
-                        <p className="d-inline-block">info@gmail.com</p>
+                        <p className="textoFooter d-inline-block">info@gmail.com</p>
                     </li>
                 </ul>
                 <ul className="col-md-6 socialMedia">

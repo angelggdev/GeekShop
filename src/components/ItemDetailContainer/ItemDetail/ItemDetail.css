@@ -15,21 +15,24 @@
     "image buttons";
     margin:20px;
     justify-items: center;
+    background-color: white;
 }
 .titleDetail{
     grid-area:title;
     height:50px;
     text-align: center;
     font-weight: bold;
+    font-size: x-large;
 }
 .descriptionDetail{
     grid-area:description;
     font-size: medium;
+    padding:30px;
 }
 .imageContainerDetail{
     grid-area:image;
-    width:400px;
-    height:400px;
+    width:430px;
+    height:430px;
     display:flex;
     align-items: center;
     justify-content: center;
@@ -37,6 +40,7 @@
 .priceDetail{
     grid-area:price;
     font-weight: bold;
+    font-size: xx-large;
 }
 .buttons{
     grid-area:buttons;

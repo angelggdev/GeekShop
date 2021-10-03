@@ -8,19 +8,19 @@ const Contact = () => {
             <form className="col-12 col-md-9">
                 <div className="form-group">
                     <label for="name">Nombre y apellido</label>
-                    <input type="text" id="name" className="form-control" />
+                    <input type="text" id="name" className="input form-control" />
                 </div>
                 <div className="form-group">
                     <label for="email">E-mail</label>
-                    <input type="email" id="email" className="form-control" />
+                    <input type="email" id="email" className="input form-control" />
                 </div>
                 <div className="form-group">
                     <label for="asunto">Asunto</label>
-                    <input type="text" id="asunto" className="form-control" />
+                    <input type="text" id="asunto" className="input form-control" />
                 </div>
                 <div className="form-group">
                     <label for="msg">Mensaje</label>
-                    <textarea name="msg" cols="40" rows="5" id="msg" className="form-control"></textarea>
+                    <textarea name="msg" cols="40" rows="5" id="msg" className="input form-control"></textarea>
                 </div>
                 <button type="submit" className="enviar btn btn-primary">Enviar</button>
             </form>

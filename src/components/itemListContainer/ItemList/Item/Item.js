@@ -12,10 +12,10 @@ const Item = (props) =>{
 
     return(
         <div className="item" >
-            <h5 className="title">{props.product.title}</h5>
             <div className="imageContainer">
                 <img src={props.product.pictureUrl} className="image" alt={props.product.title}/>
             </div>
+            <h5 className="title">{props.product.title}</h5>
             <h6 className="price">${props.product.price}</h6>
             <Link to={`/item/${props.product.id}`} className="detailsButton btn btn-secondary">Ver Detalles</Link>
             <div>

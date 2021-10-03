@@ -37,7 +37,7 @@ const NavBar = () =>{
                         <img src={Logo} alt='logo' className='logo' />
                     </Link>       
                 </header>
-                <nav className="col-6">
+                <nav className="col-8">
                     <NavLink exact to='/' activeClassName='current' className="clickable link">Inicio</NavLink>
                     <NavLink to='/about' activeClassName='current' className="clickable link">Nosotros</NavLink>
                     <Dropdown>
@@ -63,7 +63,7 @@ const NavBar = () =>{
                     </Dropdown>
                      <NavLink to='/contact' activeClassName='current' className="clickable link">Contacto</NavLink>
                 </nav>
-                <div className="icon col-3">
+                <div className="icon col-1">
                     <CartWidget/>
                 </div>
             </div>

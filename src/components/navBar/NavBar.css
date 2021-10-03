@@ -1,6 +1,9 @@
+/* rgb(255, 139, 43) */
+
 .clickable{
     text-decoration: none;
-    color:antiquewhite;
+    color:white;
+    font-weight: bold;
 }
 .clickable:hover{
     color:lightgrey;
@@ -9,24 +12,26 @@
     max-width: 100%;
 }
 .navBar{
-    background-color: black;
+    background-color: #e60012;
     padding: 0px 50px 0px 50px;
+    border-bottom: solid 1px black;
 }
 .logo{
     width:150px;
-    height:150px;
 }
 header{
     display: flex;
     justify-content: flex-start;
+    align-items:center ;
 }
 nav{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
 }
 .link{
-    margin:30px;
+    margin:20px;
+    padding:10px;
 }
 
 .icon{
@@ -36,34 +41,36 @@ nav{
 }
 
 .categories{
-    background-color: black;
+    background-color: #E60012;
     border:none;
 }
-.categories:focus{
+.categories:focus, .categories:hover, .categories:focus-visible{
     border:none;
     box-shadow:none;
-    background-color:black;
-    color:antiquewhite;
+    background-color:#E60012;
+    color:white;
+}
+.btn-dark.dropdown-toggle{
+    background-color: #E60012 !important;
+}
+.btn-dark.dropdown-toggle:focus{
+    box-shadow:none !important;
 }
 .categories:hover{
-    border:none;
-    box-shadow:none;
-    background-color:black;
     color:lightgrey;
 }
 .categories:active{
-    background-color:black;
-    color:antiquewhite;
-}
-.categories:focus-visible{
-    border:none;
+    background-color:#E60012;
+    color:white;
 }
 .dropdownMenu{
-    background-color:black;
+    background-color:#E60012;
 }
 .dropdownItem:hover{
-    background-color:rgb(48, 48, 48);
+    background-color:#be0010;
+    color:white;
 }
 .current{
-    text-decoration: underline;
+    background:radial-gradient(#be0010,#E60012);
+    border-radius:10px;
 }

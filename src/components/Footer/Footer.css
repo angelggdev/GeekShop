@@ -1,5 +1,5 @@
 .footer{
-    background-color: black;
+    background-color: #e60012;
     color:white;
 }
 
@@ -19,4 +19,12 @@ ul{
 }
 li{
     margin:10px;
+}
+.contactData{
+    display:flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.textoFooter{
+    margin-bottom:0px;
 }

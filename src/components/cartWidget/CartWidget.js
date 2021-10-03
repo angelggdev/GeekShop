@@ -12,10 +12,10 @@ const CartWidget = () =>{
     return(
         <div>
             <Link to='/cart' className="cartWidget btn position-relative" data-bs-toggle="button" >
-                <FontAwesomeIcon icon={faShoppingCart} size='2x' fixedWidth color='antiquewhite' className="clickable"/>
+                <FontAwesomeIcon icon={faShoppingCart} size='2x' fixedWidth className="clickable"/>
                 {
                     badge !== 0 &&
-                    <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
                         {badge}
                     </span> 
                 }

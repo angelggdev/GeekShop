@@ -15,3 +15,7 @@ form{
     width:70px;
     height:50px;
 }
+
+.input{
+    border:1px solid black;
+}
