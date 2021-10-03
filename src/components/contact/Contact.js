@@ -7,19 +7,19 @@ const Contact = () => {
             <h1>¡Contactanos!</h1>
             <form className="col-12 col-md-9">
                 <div className="form-group">
-                    <label for="name">Nombre y apellido</label>
+                    <label htmlFor="name">Nombre y apellido</label>
                     <input type="text" id="name" className="input form-control" />
                 </div>
                 <div className="form-group">
-                    <label for="email">E-mail</label>
+                    <label htmlFor="email">E-mail</label>
                     <input type="email" id="email" className="input form-control" />
                 </div>
                 <div className="form-group">
-                    <label for="asunto">Asunto</label>
+                    <label htmlFor="asunto">Asunto</label>
                     <input type="text" id="asunto" className="input form-control" />
                 </div>
                 <div className="form-group">
-                    <label for="msg">Mensaje</label>
+                    <label htmlFor="msg">Mensaje</label>
                     <textarea name="msg" cols="40" rows="5" id="msg" className="input form-control"></textarea>
                 </div>
                 <button type="submit" className="enviar btn btn-primary">Enviar</button>
@@ -48,7 +48,7 @@ const Contact = () => {
                 </ul>
             </aside>
             <section>
-                <iframe className="maps" title="Mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3404.978861392247!2d-64.19516604918374!3d-31.414708481313337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432a28025f290fb%3A0x9a001ced6960e4ea!2s27%20de%20Abril%20625%2C%20X5000%20AEM%2C%20C%C3%B3rdoba!5e0!3m2!1ses-419!2sar!4v1627497234484!5m2!1ses-419!2sar" width="600" height="450" style={{border:"0"}} allowfullscreen="" loading="lazy"></iframe>
+                <iframe className="maps" title="Mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3404.978861392247!2d-64.19516604918374!3d-31.414708481313337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432a28025f290fb%3A0x9a001ced6960e4ea!2s27%20de%20Abril%20625%2C%20X5000%20AEM%2C%20C%C3%B3rdoba!5e0!3m2!1ses-419!2sar!4v1627497234484!5m2!1ses-419!2sar" width="600" height="450" style={{border:"0"}} allowFullScreen="" loading="lazy"></iframe>
             </section>
             </main>
         </div>

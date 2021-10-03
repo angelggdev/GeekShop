@@ -1,0 +1,22 @@
+.offCanvas{
+    background-color: #e60012;
+    width: 40vw;
+}
+
+.offCanvasBody{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.offCanvasTitle{
+    color:white;
+    font-weight: bold;
+}
+
+.menuIcon:focus, .menuIcon:focus-visible{
+    border:none ;
+    box-shadow:none;
+    outline:none;
+}

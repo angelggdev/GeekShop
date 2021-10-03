@@ -1,5 +1,7 @@
 /* rgb(255, 139, 43) */
-
+.nav-mobile{
+    display:none;
+}
 .clickable{
     text-decoration: none;
     color:white;
@@ -44,24 +46,12 @@ nav{
     background-color: #E60012;
     border:none;
 }
-.categories:focus, .categories:hover, .categories:focus-visible{
+.categories:focus, .categories:focus-visible{
     border:none;
     box-shadow:none;
-    background-color:#E60012;
-    color:white;
-}
-.btn-dark.dropdown-toggle{
-    background-color: #E60012 !important;
-}
-.btn-dark.dropdown-toggle:focus{
-    box-shadow:none !important;
 }
 .categories:hover{
     color:lightgrey;
-}
-.categories:active{
-    background-color:#E60012;
-    color:white;
 }
 .dropdownMenu{
     background-color:#E60012;
@@ -73,4 +63,25 @@ nav{
 .current{
     background:radial-gradient(#be0010,#E60012);
     border-radius:10px;
+}
+
+@media screen and (max-width:767px){
+    .nav-PC{
+        display:none;
+    }
+    .nav-mobile{
+        display:flex;
+        justify-content: flex-start;
+        align-items:center;
+    }
+    .link{
+        margin:10px;
+        padding:5px;
+    }
+    .navBar{
+        padding: 0px 0px 0px 0px;
+    }
+    header{
+        justify-content: center;
+    }
 }

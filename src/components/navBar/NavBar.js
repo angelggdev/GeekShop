@@ -1,11 +1,13 @@
 import Logo from '../../assets/logo.png';
 import CartWidget from '../cartWidget/CartWidget';
+import NavLinks from './navLinks/NavLinks';
+import NavMobile from './navMobile/NavMobile';
 import './NavBar.css';
+import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { Dropdown } from 'react-bootstrap';
-import { Link, NavLink } from 'react-router-dom';
 import { db } from '../../services/firebase/firebase';
 import { collection, getDocs } from 'firebase/firestore'; 
+
 
 const NavBar = () =>{
 
@@ -28,42 +30,21 @@ const NavBar = () =>{
         })
     })
 
-
     return(
         <div className='navBar'>
             <div className="row">
-                <header className="col-3">
+                <nav className='nav-mobile col-3'>
+                   <NavMobile links={NavLinks} loading={loading} categories={categories}/>
+                </nav>
+                <header className="col-6 col-md-3">
                     <Link to='/'>
                         <img src={Logo} alt='logo' className='logo' />
                     </Link>       
                 </header>
-                <nav className="col-8">
-                    <NavLink exact to='/' activeClassName='current' className="clickable link">Inicio</NavLink>
-                    <NavLink to='/about' activeClassName='current' className="clickable link">Nosotros</NavLink>
-                    <Dropdown>
-                        <Dropdown.Toggle variant="dark" className="categories clickable" id="dropdown-basic">
-                            Categorías  
-                        </Dropdown.Toggle>
-                        <Dropdown.Menu className="dropdownMenu">
-                            {
-                                !loading?
-                                categories.map((x, i) =>{
-                                    return(
-                                        <Dropdown.Item as={NavLink} key={x.id} to={`/categories/${x.name}`} activeClassName='current' className="dropdownItem clickable"> 
-                                            {x.name}
-                                        </Dropdown.Item>
-                                    )
-                                })
-                                :
-                                <Dropdown.Item className="dropdownItem clickable">
-                                    <p>Loading...</p>
-                                </Dropdown.Item>
-                            } 
-                        </Dropdown.Menu>
-                    </Dropdown>
-                     <NavLink to='/contact' activeClassName='current' className="clickable link">Contacto</NavLink>
+                <nav className="nav-PC col-md-8">
+                    <NavLinks links={NavLinks} loading={loading} categories={categories}/>
                 </nav>
-                <div className="icon col-1">
+                <div className="icon col-3 col-md-1">
                     <CartWidget/>
                 </div>
             </div>
