@@ -1,5 +1,4 @@
 .item{
-    width:300px;
     display:grid;
     grid-template-areas: 
     "title"
@@ -12,6 +11,7 @@
     padding:20px;
     border-radius:10px;
     background-color: white;
+    width:300px;
 }
 .title{
     grid-area:title;
@@ -19,6 +19,7 @@
     font-weight: bold;
     justify-self: center;
     align-self: center;
+    height:50px;
 }
 .imageContainer{
     background-color: white;

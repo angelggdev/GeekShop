@@ -57,3 +57,24 @@
 hr{
     margin-bottom:0px;
 }
+
+@media screen and (max-width:767px){
+    .itemDetail{
+        width:90vw;
+        grid-template-areas: 
+        "image"
+        "title"
+        "description"
+        "price"
+        "buttons";
+        padding-bottom:30px;
+    }
+    .imageContainerDetail{
+        width:70vw;
+        height:70vh;
+    }
+    .imageDetail{
+        max-width:60vw;
+        max-height:60vh;
+    }
+}

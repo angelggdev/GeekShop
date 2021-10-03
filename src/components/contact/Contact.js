@@ -2,8 +2,8 @@ import './Contact.css';
 
 const Contact = () => {
     return(
-        <div>        
-            <main className="mainContact row">
+        <div className="container">        
+            <main className="mainContact">
             <h1>¡Contactanos!</h1>
             <form className="col-12 col-md-9">
                 <div className="form-group">
@@ -25,7 +25,7 @@ const Contact = () => {
                 <button type="submit" className="enviar btn btn-primary">Enviar</button>
             </form>
             <aside className="col-12 col-md-3">
-                <ul className="contactIcons">
+                <ul>
                     <li>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-geo-alt" viewBox="0 0 16 16">
                             <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
@@ -48,7 +48,7 @@ const Contact = () => {
                 </ul>
             </aside>
             <section>
-                <iframe className="maps" title="Mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3404.978861392247!2d-64.19516604918374!3d-31.414708481313337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432a28025f290fb%3A0x9a001ced6960e4ea!2s27%20de%20Abril%20625%2C%20X5000%20AEM%2C%20C%C3%B3rdoba!5e0!3m2!1ses-419!2sar!4v1627497234484!5m2!1ses-419!2sar" width="600" height="450" style={{border:"0"}} allowFullScreen="" loading="lazy"></iframe>
+                <iframe className="maps" title="Mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d217954.25340982!2d-64.33443211516237!3d-31.399377041048517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432985f478f5b69%3A0xb0a24f9a5366b092!2zQ8OzcmRvYmE!5e0!3m2!1ses-419!2sar!4v1633303996316!5m2!1ses-419!2sar" width="600" height="450" style={{border:"0"}} allowFullScreen="" loading="lazy"></iframe>
             </section>
             </main>
         </div>
