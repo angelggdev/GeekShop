@@ -32,11 +32,11 @@ const Cart = () => {
                             ) 
                         })
                     }
-                    <div>
-                        <h3>Precio Total: <strong>${totalPrice}</strong></h3>
-                        <button className="cartButton btn btn-dark" onClick={functions.clear}>Limpiar</button>
+                    <div className='cartContainerBottom'>
+                        <h3>Precio Total: <span className='totalPrice'>${totalPrice}</span></h3>
+                        <button className="cartButton btn" onClick={functions.clear}>Limpiar</button>
                         <br />
-                        <Link to='/' className="cartButton btn btn-dark">Agregar más productos</Link>
+                        <Link to='/' className="cartButton btn">Agregar más productos</Link>
                     </div>
                 </div>
                 :

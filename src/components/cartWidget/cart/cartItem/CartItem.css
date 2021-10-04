@@ -6,8 +6,8 @@
     align-items: center;
     padding:20px;
     border-radius:10px;
-    border:solid 1px black;
-    background-color: lightgrey;
+    border:solid 1px #ff8b2b;
+    background-color: white;
 }
 .flex{
     width:200px;
@@ -22,6 +22,17 @@
 
 .cartPrice{
     font-weight: bold;
+    font-size:large;
+    color:#ff8b2b;
 }
 
+.removeButton{
+    background-color: #ff8b2b;
+    border-radius:5px;
+    color:white;
+    font-weight: bold;
+}
+.removeButton:hover{
+    color:lightgrey;
+}
 

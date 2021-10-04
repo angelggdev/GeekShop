@@ -1,14 +1,13 @@
 .item{
     display:grid;
     grid-template-areas: 
-    "title"
     "image"
+    "title"
     "price"
-    "detailsButton"
-    "itemCount";
+    "buttons";
     margin:20px;
     justify-items: center;
-    padding:20px;
+    padding:20px 0px 20px 0px;
     border-radius:10px;
     background-color: white;
     width:300px;
@@ -20,30 +19,40 @@
     justify-self: center;
     align-self: center;
     height:50px;
+    display:flex;
+    align-items: center;
 }
 .imageContainer{
     background-color: white;
-    border-radius: 10px;
     display:flex;
     align-items:center;
     justify-content: center;
     grid-area:image;
     height:170px;
-    width:250px;
+    width:300px;
     overflow-y:hidden;
     overflow-x: visible;
+    border-bottom:solid 2px #ff8b2b;
 }
 .price{
     grid-area:price;
     font-weight: bold;
-    font-size:large;
+    color:#ff8b2b;
 }
-.detailsButton{
-    grid-area:detailsButton;
+.itemButtons{
+    grid-area:buttons;
+    display:flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
 }
-.itemCount{
-    grid-area:itemCount;
-    justify-self: center;
+.itemButton:hover{
+    color: rgba(255, 139, 43,0.5);
+}
+.seeDetails{
+    height:min-content;
+    border:0.5px solid #ff8b2b;
+    margin-left:5px;
 }
 
 .image{

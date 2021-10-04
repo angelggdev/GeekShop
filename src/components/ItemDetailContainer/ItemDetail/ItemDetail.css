@@ -16,6 +16,7 @@
     margin:20px;
     justify-items: center;
     background-color: white;
+    border-radius: 10px;
 }
 .titleDetail{
     grid-area:title;
@@ -41,11 +42,22 @@
     grid-area:price;
     font-weight: bold;
     font-size: xx-large;
+    color:#ff8b2b;
 }
 .buttons{
     grid-area:buttons;
     display:flex;
     flex-direction: column;
+}
+.detailsButtonDetail{
+    height:min-content;
+    border:0.5px solid #ff8b2b;
+    margin-left:5px;
+    color: rgba(255, 139, 43,1);
+    font-weight: bold;
+}
+.detailsButtonDetail:hover{
+    color: rgba(255, 139, 43,0.5);
 }
 
 .imageDetail{

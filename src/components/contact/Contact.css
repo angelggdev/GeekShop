@@ -18,9 +18,25 @@ form{
 .enviar{
     width:70px;
     height:50px;
-    margin:10px;
+    margin:10px 0px 10px 0px;
+    background-color: #ff8b2b;
+    border: solid 0.5px #ff8b2b;
+    font-weight: bold;
 }
 
 .input{
-    border:1px solid black;
+    border:1px solid #ff8b2b;
+}
+
+.contactDataContact{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+@media screen and (max-width:767px){
+    .contactDataContact{
+        display:none;
+    }
 }

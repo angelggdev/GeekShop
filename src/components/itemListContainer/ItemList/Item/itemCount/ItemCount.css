@@ -14,4 +14,13 @@ span{
     margin:0;
     padding:12px;
 }
-
+.addToCart{
+    background-color: #ff8b2b;
+    border-radius:5px;
+}
+.addToCartButton{
+    color:white;
+}
+.addToCartButton:hover{
+    color: lightgrey;
+}

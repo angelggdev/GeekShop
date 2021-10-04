@@ -28,3 +28,14 @@ li{
 .textoFooter{
     margin-bottom:0px;
 }
+.footerData{
+    display:inline-block;
+}
+
+@media screen and (max-width:767px){
+    .contactData{
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+}

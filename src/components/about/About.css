@@ -1,5 +1,7 @@
 .about{
     min-height:80vh;
+    display:flex;
+    justify-content: center;
 }
 
 .aboutImage{
@@ -27,5 +29,13 @@
     .text{
         align-items: center;
         text-align:center;
+        font-size:small;
+        padding:20px;
     } 
+    .teamPicture{
+        margin:10px;
+        padding:20px;
+        max-width: 360px;
+        justify-self: center;
+    }
 }

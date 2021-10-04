@@ -15,7 +15,7 @@ const CartWidget = () =>{
                 <FontAwesomeIcon icon={faShoppingCart} size='2x' fixedWidth className="clickable"/>
                 {
                     badge !== 0 &&
-                    <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
+                    <span className="badge position-absolute top-0 start-100 translate-middle badge rounded-pill ">
                         {badge}
                     </span> 
                 }

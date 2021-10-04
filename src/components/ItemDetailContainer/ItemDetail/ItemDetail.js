@@ -22,7 +22,7 @@ const Item = (props) =>{
                 </div>
                 <h6 className="priceDetail">${props.product.price}</h6>
                 <div className="buttons">
-                <Link to='/' className="detailsButtonDetail btn btn-secondary">Menos Detalles</Link>
+                <Link to='/' className="detailsButtonDetail btn">Menos Detalles</Link>
                     <div>
                         <hr />
                         {
@@ -33,7 +33,7 @@ const Item = (props) =>{
                             />
                             :
                             <div className="addToCart">
-                                <Link to='/cart' className="btn btn-dark" >Terminar mi compra</Link>
+                                <Link to='/cart' className="btn addToCartButton" >Terminar mi compra</Link>
                             </div>
                         }
                     </div> 

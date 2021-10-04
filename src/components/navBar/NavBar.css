@@ -79,9 +79,12 @@ nav{
         padding:5px;
     }
     .navBar{
-        padding: 0px 0px 0px 0px;
+        padding: 0px;
     }
     header{
         justify-content: center;
+    }
+    .navBar:first-child{
+        margin:0px;
     }
 }

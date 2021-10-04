@@ -20,7 +20,7 @@ const CartItem = (props) =>{
                 <div>
                     <h6>x {props.product.quantity}</h6>
                 </div>
-                <button className="btn btn-dark" onClick={() => functions.removeItem(props.product.id)}>
+                <button className="removeButton btn" onClick={() => functions.removeItem(props.product.id)}>
                     <FontAwesomeIcon icon={faTrashAlt} size='lg' color='antiquewhite' className="clickable"/>
                 </button>
             </div>

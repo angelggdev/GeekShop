@@ -14,9 +14,29 @@ h2{
     color:black;
 }
 .cartLink:hover{
-    color:grey;
+    color:#ff8b2b;
 }
 
 .cartButton, h3{
     margin:10px;
+}
+
+.cartButton{
+    background-color: #ff8b2b;
+    border-radius:5px;
+    color:white;
+    font-weight: bold;
+}
+.cartButton:hover{
+    color:lightgrey;
+}
+.totalPrice{
+    font-weight: bold;
+    color:#ff8b2b;
+}
+
+.cartContainerBottom{
+    margin-top:50px;
+    padding-top:20px;
+    border-top: solid 2px #ff8b2b;
 }

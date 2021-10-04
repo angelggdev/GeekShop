@@ -1,3 +1,7 @@
-.cartWidget:focus{
-    box-shadow:0 0 0 0.25rem rgba(250, 235, 215, 0.25);
+.cartWidget:focus, .cartWidget:focus-visible{
+    box-shadow:none;
 } 
+.badge{
+    color:#e60012;
+    background-color: white;
+}
