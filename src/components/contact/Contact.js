@@ -1,6 +1,11 @@
 import './Contact.css';
 
 const Contact = () => {
+
+    const Submit = (evt) =>{
+        evt.preventDefault();
+    }
+
     return(
         <div className="container">        
             <main className="mainContact">
@@ -23,7 +28,7 @@ const Contact = () => {
                         <label htmlFor="msg">Mensaje</label>
                         <textarea name="msg" cols="40" rows="5" id="msg" className="input form-control"></textarea>
                     </div>
-                    <button type="submit" className="enviar btn btn-primary">Enviar</button>
+                    <button onClick={Submit} type="submit" className="submit btn btn-primary">Enviar</button>
                 </form>
                 <aside className="contactDataContact col-12 col-md-3">
                     <ul>

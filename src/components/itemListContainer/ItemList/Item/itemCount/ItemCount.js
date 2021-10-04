@@ -46,20 +46,29 @@ const ItemCount = (props) =>{
 
     return(
         <div>
-            <div className="counter">
-                <div className="counter">
-                    <button className="button btn" onClick={()=> {onAdd("substract")}} disabled={counter === 1? true : false} >
-                        <FontAwesomeIcon icon={faMinus} size='xs' fixedWidth color={counter === 1 ? 'grey' : 'red'}/>
-                    </button>
-                    <span>{counter}</span>
-                    <button className="button btn" onClick={()=> {onAdd("add")}} disabled={counter === props.product.stock? true : false} >
-                        <FontAwesomeIcon icon={faPlus} size='xs' fixedWidth color={counter === props.product.stock ? 'grey' : 'green'}/>
-                    </button>
+            {
+                props.product.stock > 0?
+                <>
+                    <div >
+                        <div className="counter">
+                            <button className="button btn" onClick={()=> {onAdd("substract")}} disabled={counter === 1? true : false} >
+                                <FontAwesomeIcon icon={faMinus} size='xs' fixedWidth color={counter === 1 ? 'grey' : 'red'}/>
+                            </button>
+                            <span>{counter}</span>
+                            <button className="button btn" onClick={()=> {onAdd("add")}} disabled={counter === props.product.stock? true : false} >
+                                <FontAwesomeIcon icon={faPlus} size='xs' fixedWidth color={counter === props.product.stock ? 'grey' : 'green'}/>
+                            </button>
+                        </div>
+                    </div>
+                    <div className="addToCart">
+                        <button className="btn addToCartButton" onClick={addProduct} >Agregar al carrito</button>
+                    </div>
+                </>
+                :
+                <div>
+                    <h5>Sin stock</h5>
                 </div>
-            </div>
-            <div className="addToCart">
-                <button className="btn addToCartButton" onClick={addProduct} >Agregar al carrito</button>
-            </div>
+            }
         </div>
     )
   

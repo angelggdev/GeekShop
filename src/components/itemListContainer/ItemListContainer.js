@@ -46,7 +46,7 @@ const ItemListContainer = (props) =>{
     
 
     return(
-        <div className="container-fluid">
+        <div className="itemListContainer container-fluid">
             {   
                 !loading?
                 <div>

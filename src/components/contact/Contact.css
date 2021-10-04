@@ -15,16 +15,28 @@ form{
     width:100%;
 }
 
-.enviar{
-    width:70px;
-    height:50px;
+.submit{
+    width:100px;
+    height:40px;
     margin:10px 0px 10px 0px;
     background-color: #ff8b2b;
     border: solid 0.5px #ff8b2b;
     font-weight: bold;
 }
+.submit:hover, .submit:focus, .submit:focus-visible{
+    background-color: #ff8b2b;
+    border: solid 0.5px #ff8b2b;
+    font-weight: bold;
+    color:lightgrey;
+    box-shadow: none;
+}
 
 .input{
+    border:1px solid #ff8b2b;
+}
+
+.input:focus{
+    box-shadow: none;
     border:1px solid #ff8b2b;
 }
 

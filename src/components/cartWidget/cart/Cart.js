@@ -2,17 +2,16 @@ import './Cart.css';
 import {useContext, useEffect, useState} from 'react';
 import CartContext from '../../../context/cartContext';
 import CartItem from './cartItem/CartItem';
+import CartForm from './cartForm/CartForm';
 import { Link } from 'react-router-dom';
+import { Modal, Button } from 'react-bootstrap';
 
 const Cart = () => {
-    const {functions, cartItems} = useContext(CartContext);
+    const {functions, cartItems, showModal, notification} = useContext(CartContext);
     const [totalPrice, setTotalPrice] = useState(0);
 
     useEffect(() => {
-        let priceSum = 0;
-        for (let i = 0; i < cartItems.length; i++) {
-            priceSum += (cartItems[i].price)*(cartItems[i].quantity)
-        }
+        let priceSum = functions.getTotal();
         setTotalPrice(priceSum);
     }, [cartItems])
 
@@ -33,15 +32,37 @@ const Cart = () => {
                         })
                     }
                     <div className='cartContainerBottom'>
-                        <h3>Precio Total: <span className='totalPrice'>${totalPrice}</span></h3>
-                        <button className="cartButton btn" onClick={functions.clear}>Limpiar</button>
-                        <br />
-                        <Link to='/' className="cartButton btn">Agregar más productos</Link>
+                        <div className='row'>
+                            <div className='col-md-6'>
+                                <h3>Precio Total: <span className='totalPrice'>${totalPrice}</span></h3>
+                                <button className="cartButton btn" onClick={functions.clear}>Limpiar</button>
+                                <br />
+                                <Link to='/' className="cartButton btn">Agregar más productos</Link>
+                            </div>
+                            <div className='col-md-6'>
+                                <CartForm/>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 :
                 <h2>Tu carrito está vacío, <Link to='/' className="cartLink">agregar productos</Link>.</h2>
             }
+            <Modal show={showModal} onHide={() => functions.setShowModal(!showModal)}>
+                <Modal.Header closeButton>
+                <Modal.Title>
+                    Resultado de la compra
+                </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    {notification}
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button className='cartButton' variant="none" onClick={() => functions.setShowModal(!showModal)}>
+                        Aceptar
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </div>
     )
 }
