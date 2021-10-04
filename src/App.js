@@ -18,25 +18,25 @@ function App() {
       <CartProvider>
         <NavBar/>
         <Switch>
-          <Route exact path="/">
+          <Route exact path={process.env.PUBLIC_URL + "/"}>
             <ItemListContainer 
             />
           </Route>
-          <Route path="/about">
+          <Route path={process.env.PUBLIC_URL + "/about"}>
             <About/>
           </Route>
-          <Route path='/categories/:categoryName'>
+          <Route path={process.env.PUBLIC_URL + "/categories/:categoryName"}>
             <ItemListContainer 
             />
           </Route>
-          <Route path='/item/:id'>
+          <Route path={process.env.PUBLIC_URL + "/item/:id"}>
             <ItemDetailContainer 
             />
           </Route>
-          <Route path='/cart'>
+          <Route path={process.env.PUBLIC_URL + "/cart"}>
             <Cart />
           </Route>
-          <Route path='/contact'>
+          <Route path={process.env.PUBLIC_URL + "/contact"}>
             <Contact />
           </Route>
         </Switch>

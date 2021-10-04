@@ -37,7 +37,7 @@ const Cart = () => {
                                 <h3>Precio Total: <span className='totalPrice'>${totalPrice}</span></h3>
                                 <button className="cartButton btn" onClick={functions.clear}>Limpiar</button>
                                 <br />
-                                <Link to='/' className="cartButton btn">Agregar más productos</Link>
+                                <Link to={process.env.PUBLIC_URL + "/"} className="cartButton btn">Agregar más productos</Link>
                             </div>
                             <div className='col-md-6'>
                                 <CartForm/>
@@ -46,7 +46,7 @@ const Cart = () => {
                     </div>
                 </div>
                 :
-                <h2>Tu carrito está vacío, <Link to='/' className="cartLink">agregar productos</Link>.</h2>
+                <h2>Tu carrito está vacío, <Link to={process.env.PUBLIC_URL + "/"} className="cartLink">agregar productos</Link>.</h2>
             }
             <Modal show={showModal} onHide={() => functions.setShowModal(!showModal)}>
                 <Modal.Header closeButton>

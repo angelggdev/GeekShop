@@ -26,10 +26,10 @@ const Item = (props) =>{
                     <ItemCount  product={props.product} goToCart={goToCart}/>
                     :
                     <div className="addToCart">
-                        <Link to='/cart' className="btn addToCartButton" >Terminar mi compra</Link>
+                        <Link to={process.env.PUBLIC_URL + "/cart"} className="btn addToCartButton" >Terminar mi compra</Link>
                     </div>
                 }
-                <Link to={`/item/${props.product.id}`} className="seeDetails btn">
+                <Link to={process.env.PUBLIC_URL + `/item/${props.product.id}`} className="seeDetails btn">
                     <FontAwesomeIcon icon={faEye} size='1x' fixedWidth color='#ff8b2b' className='itemButton'/>
                 </Link>
             </div>            

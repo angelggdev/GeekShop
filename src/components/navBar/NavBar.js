@@ -37,7 +37,7 @@ const NavBar = () =>{
                    <NavMobile links={NavLinks} loading={loading} categories={categories}/>
                 </nav>
                 <header className="col-6 col-md-3">
-                    <Link to='/'>
+                    <Link to={process.env.PUBLIC_URL + "/"}>
                         <img src={Logo} alt='logo' className='logo' />
                     </Link>       
                 </header>

@@ -11,7 +11,7 @@ const CartItem = (props) =>{
     return(
         <div className="cartItem" >
             <h5 className="cartTitle">
-                <Link to={`/item/${props.product.id}`} className="cartLink">
+                <Link to={process.env.PUBLIC_URL + `/item/${props.product.id}`} className="cartLink">
                     {props.product.title}
                 </Link>
             </h5>

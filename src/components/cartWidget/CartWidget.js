@@ -11,7 +11,7 @@ const CartWidget = () =>{
 
     return(
         <div>
-            <Link to='/cart' className="cartWidget btn position-relative" data-bs-toggle="button" >
+            <Link to={process.env.PUBLIC_URL + "/cart"} className="cartWidget btn position-relative" data-bs-toggle="button" >
                 <FontAwesomeIcon icon={faShoppingCart} size='2x' fixedWidth className="clickable"/>
                 {
                     badge !== 0 &&
