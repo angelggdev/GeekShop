@@ -1,6 +1,6 @@
 import './CartItem.css';
 import {useContext} from 'react';
-import CartContext from '../../../../context/cartContext';
+import CartContext from '../../../context/cartContext';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';

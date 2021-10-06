@@ -2,7 +2,7 @@ import './ItemCount.css';
 import React, { useContext, useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
-import CartContext from '../../../../../context/cartContext';
+import CartContext from '../../context/cartContext';
 
 const ItemCount = (props) =>{
     const { functions, cartItems, badge } = useContext(CartContext);

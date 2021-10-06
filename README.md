@@ -1,7 +1,7 @@
-Geek Shop
+### Geek Shop
 
-Front End de sitio Ecommerce desarrollado con:
+Front-End for E-commerce App developed with:
 
-ReactJs
-Bootstrap
-Firebase
+- ReactJs
+- Bootstrap
+- Firebase
