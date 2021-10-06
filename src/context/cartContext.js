@@ -101,7 +101,7 @@ export const CartProvider = ({children}) => {
                             setNotification(`¡La orden se ha ejecutado con éxito! El id de su orden es ${res.id}`);
                         })
                         .catch((error) => {
-                            setNotification('¡Oops! Hubo un error al procesar la orden');
+                            setNotification('¡Oops! Hubo un error al procesar la orden', error);
                         })
                         .finally(() => {
                             setSendingOrder(false);
