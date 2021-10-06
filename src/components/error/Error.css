@@ -1,0 +1,38 @@
+.errorContainer{
+    min-height:80vh;
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.errorText{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color:rgba(230, 0, 18);
+    align-self: flex-start;
+}
+
+.errorText h1{
+    font-weight: bold;
+    font-size:60px;
+}
+
+.errorText h2{
+    font-size:40px;
+}
+
+.errorImage{
+    width:40vw;
+}
+
+.error-homeLink{
+    margin:40px;
+    color:black;
+    font-size:20px;
+}
+
+.error-homeLink:hover{
+    color:grey;
+}

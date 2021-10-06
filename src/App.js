@@ -8,6 +8,7 @@ import { CartProvider } from './context/cartContext';
 import Cart from './components/cart/Cart';
 import About from './components/about/About';
 import Contact from './components/contact/Contact';
+import Error from './components/error/Error';
 
 
 function App() {
@@ -38,6 +39,9 @@ function App() {
           </Route>
           <Route path={process.env.PUBLIC_URL + "/contact"}>
             <Contact />
+          </Route>
+          <Route exact path='*'>
+            <Error />
           </Route>
         </Switch>
       </CartProvider>
