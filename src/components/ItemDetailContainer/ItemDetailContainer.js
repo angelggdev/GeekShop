@@ -15,7 +15,6 @@ const ItemDetailContainer = (props) =>{
         getDoc(doc(db, 'items', id))
         .then((querySnapshot) => {
             const product = { id: querySnapshot.id, ...querySnapshot.data()}
-            console.log(product) 
             setProductView(product); 
         })
         .catch((error) => {
@@ -24,7 +23,7 @@ const ItemDetailContainer = (props) =>{
         .finally(() => {
             setLoading(false); 
         })
-    }, [])
+    }, [id])
 
     
 

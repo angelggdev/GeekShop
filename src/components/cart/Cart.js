@@ -13,7 +13,7 @@ const Cart = () => {
     useEffect(() => {
         let priceSum = functions.getTotal();
         setTotalPrice(priceSum);
-    }, [cartItems])
+    }, [cartItems, functions])
 
     return(
         <div className="cartContainer container">

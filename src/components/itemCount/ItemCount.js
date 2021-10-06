@@ -11,7 +11,7 @@ const ItemCount = (props) =>{
 
     useEffect(() => {
         setItemIsInCart(functions.isInCart(props.product.id));
-    }, []) 
+    }, [functions, props.product.id]) 
 
     const onAdd = (operation) => {
         if (operation === "add" && counter < props.product.stock){
