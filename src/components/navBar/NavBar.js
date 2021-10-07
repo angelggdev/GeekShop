@@ -5,8 +5,7 @@ import NavMobile from './navMobile/NavMobile';
 import './NavBar.css';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { db } from '../../services/firebase/firebase';
-import { collection, getDocs } from 'firebase/firestore'; 
+import { getProducts } from '../../services/firebase/firebase';
 
 
 const NavBar = () =>{
@@ -15,12 +14,9 @@ const NavBar = () =>{
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        getDocs(collection(db, 'categories'))
-        .then((querySnapshot) => {
-            const categoryList = querySnapshot.docs.map(doc => {
-                return {id: doc.id, ...doc.data()}
-            })
-            setCategories(categoryList);
+        getProducts('categories', false, false, false, false)
+        .then((res) => {
+            setCategories(res);
         })
         .catch((error) => {
             console.log('Error searching items', error);

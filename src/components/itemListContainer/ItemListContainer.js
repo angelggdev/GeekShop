@@ -12,7 +12,7 @@ const ItemListContainer = (props) =>{
 
     useEffect(() => {
         setLoading(true);
-        getProducts('category', '==', categoryName)
+        getProducts('items', false, 'category', '==', categoryName)
         .then((res) => {
             setItemList(res);
         })

@@ -4,10 +4,10 @@ import CartContext from '../../context/cartContext';
 import CartItem from './cartItem/CartItem';
 import CartForm from './cartForm/CartForm';
 import { Link } from 'react-router-dom';
-import { Modal, Button } from 'react-bootstrap';
+import NotificationModal from './notificationModal/NotificationModal';
 
 const Cart = () => {
-    const {functions, cartItems, showModal, notification} = useContext(CartContext);
+    const {functions, cartItems} = useContext(CartContext);
     const [totalPrice, setTotalPrice] = useState(0);
 
     useEffect(() => {
@@ -48,21 +48,7 @@ const Cart = () => {
                 :
                 <h2>Tu carrito está vacío, <Link to={process.env.PUBLIC_URL + "/"} className="cartLink">agregar productos</Link>.</h2>
             }
-            <Modal show={showModal} onHide={() => functions.setShowModal(!showModal)}>
-                <Modal.Header closeButton>
-                <Modal.Title>
-                    Resultado de la compra
-                </Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    {notification}
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button className='cartButton' variant="none" onClick={() => functions.setShowModal(!showModal)}>
-                        Aceptar
-                    </Button>
-                </Modal.Footer>
-            </Modal>
+            <NotificationModal />
         </div>
     )
 }

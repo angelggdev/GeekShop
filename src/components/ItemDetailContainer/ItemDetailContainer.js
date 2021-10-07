@@ -2,8 +2,7 @@ import './ItemDetailContainer.css';
 import ItemDetail from './ItemDetail/ItemDetail.js';
 import {useState, useEffect} from 'react';
 import { useParams } from 'react-router';
-import { db } from '../../services/firebase/firebase';
-import { doc, getDoc } from 'firebase/firestore'; 
+import { getProducts } from '../../services/firebase/firebase';
 
 const ItemDetailContainer = (props) =>{
     const {id} = useParams();
@@ -12,10 +11,9 @@ const ItemDetailContainer = (props) =>{
 
     useEffect(()=>{
         setLoading(true);
-        getDoc(doc(db, 'items', id))
-        .then((querySnapshot) => {
-            const product = { id: querySnapshot.id, ...querySnapshot.data()}
-            setProductView(product); 
+        getProducts('items', true, false, false, id)
+        .then((res) => {
+            setProductView(res); 
         })
         .catch((error) => {
             console.log('Error searching items', error);
