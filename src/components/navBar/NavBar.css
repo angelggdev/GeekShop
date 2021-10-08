@@ -10,8 +10,9 @@
 .clickable:hover{
     color:lightgrey;
 }
-.row{
-    max-width: 100%;
+.navBar div:first-child{
+    margin: 0px;
+    padding-right: 10px;
 }
 .navBar{
     background-color: #e60012;

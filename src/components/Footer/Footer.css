@@ -1,6 +1,11 @@
 .footer{
     background-color: #e60012;
     color:white;
+    max-width:100vw;
+}
+
+.footer .row{
+    margin-right: 0px !important;
 }
 
 a{
@@ -24,6 +29,9 @@ li{
     display:flex;
     align-items: center;
     justify-content: flex-start;
+}
+.contactData li, .contactData li svg, .contactData li p{
+    display:inline-block;
 }
 .textoFooter{
     margin-bottom:0px;

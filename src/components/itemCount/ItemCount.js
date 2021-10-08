@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import CartContext from '../../context/cartContext';
+import Button from 'react-bootstrap/Button'
 
 const ItemCount = (props) =>{
     const { functions, cartItems, badge } = useContext(CartContext);
@@ -51,17 +52,17 @@ const ItemCount = (props) =>{
                 <>
                     <div >
                         <div className="counter">
-                            <button className="button btn" onClick={()=> {onAdd("substract")}} disabled={counter === 1? true : false} >
+                            <Button variant='none' className="button" onClick={()=> {onAdd("substract")}} disabled={counter === 1? true : false} >
                                 <FontAwesomeIcon icon={faMinus} size='xs' fixedWidth color={counter === 1 ? 'grey' : 'red'}/>
-                            </button>
+                            </Button>
                             <span>{counter}</span>
-                            <button className="button btn" onClick={()=> {onAdd("add")}} disabled={counter === props.product.stock? true : false} >
+                            <Button variant='none' className="button" onClick={()=> {onAdd("add")}} disabled={counter === props.product.stock? true : false} >
                                 <FontAwesomeIcon icon={faPlus} size='xs' fixedWidth color={counter === props.product.stock ? 'grey' : 'green'}/>
-                            </button>
+                            </Button>
                         </div>
                     </div>
                     <div className="addToCart">
-                        <button className="btn addToCartButton" onClick={addProduct} >Agregar al carrito</button>
+                        <Button variant='none' className="addToCartButton" onClick={addProduct} >Agregar al carrito</Button>
                     </div>
                 </>
                 :

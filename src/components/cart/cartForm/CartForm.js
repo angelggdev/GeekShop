@@ -1,4 +1,6 @@
+import Button from 'react-bootstrap/Button';
 import { useState, useContext, useEffect } from 'react';
+import { Form , Spinner} from 'react-bootstrap';
 import CartContext from '../../../context/cartContext';
 import './CartForm.css';
 
@@ -63,57 +65,58 @@ const CartForm = (props) => {
 
 
     return(
-        <>
+        <div className='cartFormContainer'>
             {
                 !sendingOrder?
                 <>
                     <h2>Datos personales:</h2>
-                    <form className='cartForm'>
-                        <div className="form-group">
-                            <label htmlFor="name">Nombre y apellido</label>
-                            <input 
+                    <Form className='cartForm'>
+                        <Form.Group>
+                            <Form.Label>Nombre y apellido</Form.Label>
+                            <Form.Control 
                                 onChange={setNameValue} 
                                 placeholder='Nombre Apellido' 
                                 type="text" 
-                                id="name" 
-                                className="input form-control" 
+                                className='input'
                             />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="email">E-mail</label>
-                            <input 
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>E-mail</Form.Label>
+                            <Form.Control 
                                 onChange={setEmailValue}
                                 placeholder='nombre@gmail.com' 
-                                type="email" 
-                                id="email" 
-                                className="input form-control" 
+                                type="email"
+                                className='input'
                             />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="phone">Teléfono</label>
-                            <input 
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Teléfono</Form.Label>
+                            <Form.Control 
                                 onChange={setPhoneValue} 
                                 placeholder='3515555555' 
                                 type="number" 
-                                id="phone" 
-                                className="input form-control" 
+                                className='input'
                             />
-                        </div>
+                        </Form.Group>
                         <br />
-                        <button 
+                        <Button
+                            variant={formIsValid? "none" : "dark"}
                             onClick={Submit} 
                             disabled={formIsValid ? false: true}
                             type="submit" 
-                            className={formIsValid? "submit btn btn-primary" : "submit btn btn-dark"}
+                            className="submit"
                         >
                             Comprar
-                        </button>
-                    </form>
+                        </Button>
+                    </Form>
                 </>
                 :
-                <div>Sending order...</div>
+                <div className="sendingOrder">
+                    <h3>Sending order...</h3>
+                    <Spinner animation="grow" />
+                </div>
             }
-        </>
+        </div>
     )
 }
 

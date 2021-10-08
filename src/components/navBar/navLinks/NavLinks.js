@@ -7,7 +7,7 @@ const NavLinks = (props) => {
         <>
             <NavLink exact to={process.env.PUBLIC_URL + "/"} onClick={props.toggleShow} activeClassName='current' className="clickable link">Inicio</NavLink>
             <NavLink to={process.env.PUBLIC_URL + "/about"} onClick={props.toggleShow} activeClassName='current' className="clickable link">Nosotros</NavLink>
-            <Dropdown>
+            <Dropdown className='categoriesContainer'>
                 <Dropdown.Toggle variant="none" className="categories clickable link" id="dropdown-basic">
                     Categorías  
                 </Dropdown.Toggle>

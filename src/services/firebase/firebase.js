@@ -19,8 +19,8 @@ export const getFirebase = () =>{
 
 export const db = getFirestore(app);
 
-export const getProducts = (col, isOneItem, filter, operator, compareTo) => {
-    let firebasePromise = '';
+export const getDocuments = (col, isOneItem, filter, operator, compareTo) => {
+    let firebasePromise;
     if(isOneItem){
         firebasePromise = getDoc(doc(db, col, compareTo))
     } else {

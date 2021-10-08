@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Button from 'react-bootstrap/Button'
 
 const Item = (props) =>{
     const [isAdded, setIsAdded] = useState(false);
@@ -25,13 +26,15 @@ const Item = (props) =>{
                     !isAdded?
                     <ItemCount  product={props.product} goToCart={goToCart}/>
                     :
-                    <div className="addToCart">
-                        <Link to={process.env.PUBLIC_URL + "/cart"} className="btn addToCartButton" >Terminar mi compra</Link>
-                    </div>
+                    <Button variant='none' className="addToCart">
+                        <Link to={process.env.PUBLIC_URL + "/cart"} className="addToCartButton" >Terminar mi compra</Link>
+                    </Button>
                 }
-                <Link to={process.env.PUBLIC_URL + `/item/${props.product.id}`} className="seeDetails btn">
-                    <FontAwesomeIcon icon={faEye} size='1x' fixedWidth color='#ff8b2b' className='itemButton'/>
-                </Link>
+                <Button variant='none' className="seeDetails">
+                    <Link to={process.env.PUBLIC_URL + `/item/${props.product.id}`} >
+                        <FontAwesomeIcon icon={faEye} size='1x' fixedWidth color='#ff8b2b' className='itemButton'/>
+                    </Link>
+                </Button>
             </div>            
         </div>
     )

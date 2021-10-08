@@ -2,7 +2,8 @@ import './ItemDetailContainer.css';
 import ItemDetail from './ItemDetail/ItemDetail.js';
 import {useState, useEffect} from 'react';
 import { useParams } from 'react-router';
-import { getProducts } from '../../services/firebase/firebase';
+import { getDocuments } from '../../services/firebase/firebase';
+import { Container, Spinner } from 'react-bootstrap';
 
 const ItemDetailContainer = (props) =>{
     const {id} = useParams();
@@ -11,7 +12,7 @@ const ItemDetailContainer = (props) =>{
 
     useEffect(()=>{
         setLoading(true);
-        getProducts('items', true, false, false, id)
+        getDocuments('items', true, false, false, id)
         .then((res) => {
             setProductView(res); 
         })
@@ -26,7 +27,7 @@ const ItemDetailContainer = (props) =>{
     
 
     return(
-        <div className="container">
+        <Container>
             {
                 !loading?
                 <ItemDetail 
@@ -34,13 +35,11 @@ const ItemDetailContainer = (props) =>{
                 />
                 :
                 <div className="loading">
-                    <div className="spinner-border " role="status">
-                        <span className="sr-only">Loading...</span>
-                    </div>
+                    <Spinner animation="grow" />
                 </div>
             
             }
-        </div>  
+        </Container>  
     )
 }
 

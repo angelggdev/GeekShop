@@ -4,6 +4,7 @@ import CartContext from '../../../context/cartContext';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import Button from 'react-bootstrap/Button'
 
 const CartItem = (props) =>{
     const {functions} = useContext(CartContext);
@@ -20,9 +21,9 @@ const CartItem = (props) =>{
                 <div>
                     <h6>x {props.product.quantity}</h6>
                 </div>
-                <button className="removeButton btn" onClick={() => functions.removeItem(props.product.id)}>
+                <Button variant='none' className="removeButton" onClick={() => functions.removeItem(props.product.id)}>
                     <FontAwesomeIcon icon={faTrashAlt} size='lg' color='antiquewhite' className="clickable"/>
-                </button>
+                </Button>
             </div>
             
         </div>

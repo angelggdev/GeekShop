@@ -3,3 +3,23 @@
     grid-template-columns: 1fr 1fr;
     column-gap: 20px;
 }
+
+.sendingOrder{
+    height:200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width:767px){
+    .cartFormContainer{
+        margin:30px;
+    }
+    .cartForm{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 10px;
+    }
+}

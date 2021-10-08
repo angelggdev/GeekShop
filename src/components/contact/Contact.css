@@ -22,6 +22,7 @@ form{
     background-color: #ff8b2b;
     border: solid 0.5px #ff8b2b;
     font-weight: bold;
+    color:white;
 }
 .submit:hover, .submit:focus, .submit:focus-visible{
     background-color: #ff8b2b;

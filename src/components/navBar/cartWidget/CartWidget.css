@@ -1,7 +1,10 @@
 .cartWidget:focus, .cartWidget:focus-visible{
     box-shadow:none;
 } 
-.badge{
-    color:#e60012;
-    background-color: white;
+.cartWidget{
+    position:relative;
+}
+.cartBadge{
+    position:absolute;
+    bottom:20px;
 }

@@ -5,7 +5,8 @@ import NavMobile from './navMobile/NavMobile';
 import './NavBar.css';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getProducts } from '../../services/firebase/firebase';
+import { getDocuments } from '../../services/firebase/firebase';
+import { Col, Row } from 'react-bootstrap';
 
 
 const NavBar = () =>{
@@ -14,7 +15,7 @@ const NavBar = () =>{
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        getProducts('categories', false, false, false, false)
+        getDocuments('categories', false, false, false, false)
         .then((res) => {
             setCategories(res);
         })
@@ -28,22 +29,22 @@ const NavBar = () =>{
 
     return(
         <div className='navBar'>
-            <div className="row">
-                <nav className='nav-mobile col-3'>
-                   <NavMobile links={NavLinks} loading={loading} categories={categories}/>
-                </nav>
-                <header className="col-6 col-md-3">
+            <Row>
+                <Col as='nav' xs={3} className='nav-mobile'>
+                    <NavMobile links={NavLinks} loading={loading} categories={categories}/>
+                </Col>
+                <Col as='header' xs={6} md={3}>
                     <Link to={process.env.PUBLIC_URL + "/"}>
                         <img src={Logo} alt='logo' className='logo' />
                     </Link>       
-                </header>
-                <nav className="nav-PC col-md-8">
+                </Col>
+                <Col as='nav' xs={8} className="nav-PC">
                     <NavLinks links={NavLinks} loading={loading} categories={categories}/>
-                </nav>
-                <div className="icon col-3 col-md-1">
+                </Col>
+                <Col xs={3} md={1} className="icon">
                     <CartWidget/>
-                </div>
-            </div>
+                </Col>
+            </Row>
         </div>
         
     )

@@ -53,10 +53,12 @@
     height:min-content;
     border:0.5px solid #ff8b2b;
     margin-left:5px;
+}
+.detailsButtonDetail a{
     color: rgba(255, 139, 43,1);
     font-weight: bold;
 }
-.detailsButtonDetail:hover{
+.detailsButtonDetail a:hover{
     color: rgba(255, 139, 43,0.5);
 }
 

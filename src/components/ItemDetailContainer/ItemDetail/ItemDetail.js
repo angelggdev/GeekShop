@@ -2,6 +2,7 @@ import './ItemDetail.css';
 import ItemCount from '../../itemCount/ItemCount';
 import { Link } from 'react-router-dom';
 import {useState} from 'react';
+import Button from 'react-bootstrap/Button'
 
 const Item = (props) =>{
     const [isAdded, setIsAdded] = useState(false);
@@ -22,7 +23,9 @@ const Item = (props) =>{
                 </div>
                 <h6 className="priceDetail">${props.product.price}</h6>
                 <div className="buttons">
-                <Link to={process.env.PUBLIC_URL + "/"} className="detailsButtonDetail btn">Menos Detalles</Link>
+                <Button variant='none' className="detailsButtonDetail">
+                    <Link to={process.env.PUBLIC_URL + "/"}>Menos Detalles</Link>
+                </Button>
                     <div>
                         <hr />
                         {
@@ -32,9 +35,9 @@ const Item = (props) =>{
                                 goToCart={goToCart}
                             />
                             :
-                            <div className="addToCart">
-                                <Link to={process.env.PUBLIC_URL + "/cart"} className="btn addToCartButton" >Terminar mi compra</Link>
-                            </div>
+                            <Button variant='none' className="addToCart">
+                                <Link to={process.env.PUBLIC_URL + "/cart"} className="addToCartButton" >Terminar mi compra</Link>
+                            </Button>
                         }
                     </div> 
                 </div>        

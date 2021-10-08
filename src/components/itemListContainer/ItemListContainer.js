@@ -2,7 +2,8 @@ import './ItemListContainer.css';
 import ItemList from './ItemList/ItemList.js';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
-import { getProducts } from '../../services/firebase/firebase';
+import { getDocuments } from '../../services/firebase/firebase';
+import { Container, Spinner } from 'react-bootstrap';
 
 
 const ItemListContainer = (props) =>{
@@ -12,7 +13,7 @@ const ItemListContainer = (props) =>{
 
     useEffect(() => {
         setLoading(true);
-        getProducts('items', false, 'category', '==', categoryName)
+        getDocuments('items', false, 'category', '==', categoryName)
         .then((res) => {
             setItemList(res);
         })
@@ -26,7 +27,7 @@ const ItemListContainer = (props) =>{
     
 
     return(
-        <div className="itemListContainer container-fluid">
+        <Container className="itemListContainer">
             {   
                 !loading?
                 <div>
@@ -36,12 +37,10 @@ const ItemListContainer = (props) =>{
                 </div>
                 :
                 <div className="loading">
-                    <div className="spinner-border " role="status">
-                        <span className="sr-only">Loading...</span>
-                    </div>
+                    <Spinner animation="grow" />
                 </div>
             }
-        </div>
+        </Container>
     )
 }
 

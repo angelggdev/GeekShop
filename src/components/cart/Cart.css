@@ -27,7 +27,7 @@ h2{
     color:white;
     font-weight: bold;
 }
-.cartButton:hover{
+.cartButtonLink:hover, .cartButton:hover{
     color:lightgrey;
 }
 .totalPrice{
@@ -39,4 +39,19 @@ h2{
     margin-top:50px;
     padding-top:20px;
     border-top: solid 2px #ff8b2b;
+}
+.cartContainerPrice{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+@media screen and (max-width:767px){
+    .cartContainerPrice{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
