@@ -1,6 +1,16 @@
 import * as firebase from 'firebase/app';
 import {getFirestore} from 'firebase/firestore';
-import { collection, getDocs, query, where, getDoc, doc } from 'firebase/firestore';
+import { 
+    collection, 
+    getDocs, 
+    query, 
+    where, 
+    getDoc, 
+    doc,
+    addDoc,
+    Timestamp,
+    writeBatch
+} from 'firebase/firestore';
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_apiKey,
@@ -48,6 +58,69 @@ export const getDocuments = (col, isOneItem, filter, operator, compareTo) => {
         })
         .catch((error) => {
             reject(() => error);
+        })
+    })
+}
+
+export const createOrder = (name, phone, email, products, totalPrice) => {
+    return new Promise ((resolve, reject) => {
+        const items = []
+        products.forEach((item)=>{
+            items.push(
+                {
+                    id: item.id,
+                    title: item.title,
+                    price: item.price*item.quantity,
+                    quantity: item.quantity
+                }
+            )
+        })
+        const orderToSave = {
+            buyer: {
+                name: name,
+                phone: phone,
+                email: email
+            },
+            items: items,
+            date: Timestamp.fromDate(new Date()),
+            price: totalPrice
+        }
+    
+        const batch = writeBatch(db);
+        const outOfStock = [];
+    
+        orderToSave.items.forEach((prod, i) => {
+            getDoc(doc(db, 'items', prod.id))
+            .then(DocumentSnapshot => {
+                if(DocumentSnapshot.data().stock >= orderToSave.items[i].quantity) {
+                    batch.update(doc(db, 'items', DocumentSnapshot.id), {
+                        stock: DocumentSnapshot.data().stock - orderToSave.items[i].quantity
+                    })
+                } else {
+                    outOfStock.push({...DocumentSnapshot.data(), id: DocumentSnapshot.id})
+                }
+            })
+            .then(() => {
+                let notification;
+                let error;
+                if(outOfStock.length === 0){
+                    addDoc(collection(db, 'orders'), orderToSave)
+                    .then((res) => {
+                        batch.commit()
+                        .then(() => {
+                            notification = `¡La orden se ha ejecutado con éxito! El id de su orden es ${res.id}`;
+                            resolve(notification);
+                        })
+                        .catch((err) => {
+                            error = err;
+                            reject(`¡Oops! Hubo un error al procesar la orden, error: ${error}`)
+                        })
+                    })
+                } else {
+                    notification = `¡Oops! Parece que nos quedamos sin stock ${outOfStock.length >1? `de los productos ${outOfStock.map((x, i) => `${x.title}, `)}` : `del producto ${outOfStock[0].title}`}. ¡Lo sentimos mucho!`;
+                    resolve(notification);
+                }
+            })
         })
     })
 }

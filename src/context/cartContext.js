@@ -1,9 +1,5 @@
 import React, { createContext, useState } from "react";
-import { 
-    collection, addDoc, getDoc, doc ,
-    Timestamp, writeBatch 
- } from "@firebase/firestore";
-import { db } from '../services/firebase/firebase';
+import { createOrder } from '../services/firebase/firebase';
 
 
 const CartContext = createContext();
@@ -54,70 +50,38 @@ export const CartProvider = ({children}) => {
         return priceSum;
     }
 
+    const addItem = (item) => {
+        if (!isInCart(item.id)){
+            let cartList = cartItems;
+            cartList.push(item);
+            setCartItems(cartList); 
+        } else {
+            let cartList = cartItems;
+            for (let i = 0; i < cartList.length; i++) {
+                if(cartList[i].id === item.id){
+                    cartList[i].quantity =  cartList[i].quantity + item.quantity;
+                }
+            }
+            setCartItems(cartList);
+        }
+        setBadge(badge + item.quantity)
+    }
+
     const saveOrder = (name, phone, email) => {
         setSendingOrder(true)
-        const items = []
-        cartItems.forEach((item)=>{
-            items.push(
-                {
-                    id: item.id,
-                    title: item.title,
-                    price: item.price*item.quantity,
-                    quantity: item.quantity
-                }
-            )
+        createOrder(name, phone, email, cartItems, getTotal())
+        .then((res) => {
+            setNotification(res);
+        })  
+        .catch((err) => {
+            setNotification(err);
+        })          
+        .finally(() => {
+            setSendingOrder(false);
+            setCartItems([]);
+            setBadge(0);
+            setShowModal(true);
         })
-        const orderToSave = {
-            buyer: {
-                name: name,
-                phone: phone,
-                email: email
-            },
-            items: items,
-            date: Timestamp.fromDate(new Date()),
-            price: getTotal()
-        }
-
-        const batch = writeBatch(db);
-        const outOfStock = [];
-
-        orderToSave.items.forEach((prod, i) => {
-            getDoc(doc(db, 'items', prod.id))
-            .then(DocumentSnapshot => {
-                if(DocumentSnapshot.data().stock >= orderToSave.items[i].quantity) {
-                    batch.update(doc(db, 'items', DocumentSnapshot.id), {
-                        stock: DocumentSnapshot.data().stock - orderToSave.items[i].quantity
-                    })
-                } else {
-                    outOfStock.push({...DocumentSnapshot.data(), id: DocumentSnapshot.id})
-                }
-            })
-            .then(() => {
-                if(outOfStock.length === 0){
-                    addDoc(collection(db, 'orders'), orderToSave)
-                    .then((res) => {
-                        batch.commit()
-                        .then(() => {
-                            setNotification(`¡La orden se ha ejecutado con éxito! El id de su orden es ${res.id}`);
-                        })
-                        .catch((error) => {
-                            setNotification('¡Oops! Hubo un error al procesar la orden', error);
-                        })
-                        .finally(() => {
-                            setSendingOrder(false);
-                            setCartItems([]);
-                            setBadge(0);
-                            setShowModal(true);
-                        })
-                    })
-                } else {
-                    setNotification(`¡Oops! Parece que nos quedamos sin stock ${outOfStock.length >1? `de los productos ${outOfStock.map((x, i) => `${x.title}, `)}` : `del producto ${outOfStock[0].title}`}. ¡Lo sentimos mucho!`)
-                    setShowModal(true);
-                    setSendingOrder(false);
-                }
-            })
-        })
-
     }
 
 
@@ -127,12 +91,10 @@ export const CartProvider = ({children}) => {
                 functions:{
                 removeItem,
                 clear,
-                isInCart,
-                setCartItems,
-                setBadge,
                 saveOrder,
                 getTotal,
-                setShowModal
+                setShowModal,
+                addItem
                 },
                 badge,
                 cartItems,
