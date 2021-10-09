@@ -40,7 +40,7 @@ function App() {
           <Route path={process.env.PUBLIC_URL + "/contact"}>
             <Contact />
           </Route>
-          <Route path={process.env.PUBLIC_URL +'*'}>
+          <Route path={process.env.PUBLIC_URL + "/*"}>
             <Error />
           </Route>
         </Switch>
