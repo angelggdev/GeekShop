@@ -10,6 +10,7 @@ const CartForm = (props) => {
     const[name, setName] = useState('');
     const[phone, setPhone] = useState('');
     const[email, setEmail] = useState('');
+    const[emailCopy, setEmailCopy] = useState('');
     const[formIsValid, setFormIsValid] = useState(false);
 
     useEffect(() => {
@@ -31,12 +32,17 @@ const CartForm = (props) => {
             }
         }
         const validateEmail = () => {
-            let atPosition = email.lastIndexOf('@');
-            let dotPosition = email.lastIndexOf('.');
-            if (!(atPosition < dotPosition && atPosition > 0 && email.indexOf('@@') === -1 && dotPosition > 2 && (email.length - dotPosition) > 2)) {
-                return false
+            console.log(email === emailCopy)
+            if(email === emailCopy){
+                let atPosition = email.lastIndexOf('@');
+                let dotPosition = email.lastIndexOf('.');
+                if (!(atPosition < dotPosition && atPosition > 0 && email.indexOf('@@') === -1 && dotPosition > 2 && (email.length - dotPosition) > 2)) {
+                    return false
+                } else {
+                    return true
+                }
             } else {
-                return true
+                return false
             }
         }
         if(validateName() && validatePhone() && validateEmail()){
@@ -44,7 +50,7 @@ const CartForm = (props) => {
         } else {
             setFormIsValid(false);
         }
-    }, [name, phone, email])
+    }, [name, phone, email, emailCopy])
     
     const setNameValue = (event) => {
         setName(event.target.value)
@@ -54,6 +60,9 @@ const CartForm = (props) => {
     }
     const setEmailValue = (event) => {
         setEmail(event.target.value)
+    }
+    const setEmailCopyValue = (event) => {
+        setEmailCopy(event.target.value)
     }
 
     const Submit = (evt) =>{
@@ -90,6 +99,15 @@ const CartForm = (props) => {
                             />
                         </Form.Group>
                         <Form.Group>
+                            <Form.Label>Confirm E-mail</Form.Label>
+                            <Form.Control 
+                                onChange={setEmailCopyValue}
+                                placeholder='nombre@gmail.com' 
+                                type="email"
+                                className='input'
+                            />
+                        </Form.Group>
+                        <Form.Group>
                             <Form.Label>Teléfono</Form.Label>
                             <Form.Control 
                                 onChange={setPhoneValue} 
@@ -98,7 +116,6 @@ const CartForm = (props) => {
                                 className='input'
                             />
                         </Form.Group>
-                        <br />
                         <Button
                             variant={formIsValid? "none" : "dark"}
                             onClick={Submit} 
