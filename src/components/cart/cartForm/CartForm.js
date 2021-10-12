@@ -32,7 +32,6 @@ const CartForm = (props) => {
             }
         }
         const validateEmail = () => {
-            console.log(email === emailCopy)
             if(email === emailCopy){
                 let atPosition = email.lastIndexOf('@');
                 let dotPosition = email.lastIndexOf('.');
