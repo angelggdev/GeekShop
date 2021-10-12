@@ -10,7 +10,7 @@ const NotificationModal = () => {
         <Modal show={showModal} onHide={() => functions.setShowModal(!showModal)}>
             <Modal.Header closeButton>
             <Modal.Title>
-                Resultado de la compra
+                Detalle de la compra
             </Modal.Title>
             </Modal.Header>
             <Modal.Body>

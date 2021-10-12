@@ -16,7 +16,7 @@ const NavLinks = (props) => {
                         !props.loading?
                         props.categories.map((x, i) =>{
                             return(
-                                <Dropdown.Item as={NavLink} key={x.id} to={process.env.PUBLIC_URL + `/categories/${x.name}`} onClick={props.toggleShow} activeClassName='current' className="dropdownItem clickable"> 
+                                <Dropdown.Item as={NavLink} key={x.id} to={process.env.PUBLIC_URL + `/categories/${x.key}`} onClick={props.toggleShow} activeClassName='current' className="dropdownItem clickable"> 
                                     {x.name}
                                 </Dropdown.Item>
                             )
