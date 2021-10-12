@@ -6,6 +6,36 @@
 - React-Bootstrap
 - Firebase
 
+## Views
+
+### Route '/'
+
+This route renders the ItemListContainer Component, that displays the catalogue of products.
+
+### Route '/item/:itemId'
+
+This route renders the details of the item with the id 'itemId'.
+
+### Route '/about'
+
+This route renders the About Component.
+
+### Route '/categories/:categoryName'
+
+This route renders the list of products of the category 'categoryName'.
+
+### Route '/contact'
+
+This route renders the Contact Component.
+
+### Route '/cart'
+
+This route renders the Cart Component, that shows the list of items added to the cart, the total price and a form to enter the user's data and finish the purchase.
+
+### Other routes
+
+Any other route will render the Error component, letting the user know that an empty url has been accessed.
+
 ## Components
 
 ### NavBar
