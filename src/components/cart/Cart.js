@@ -17,27 +17,28 @@ const Cart = () => {
             {
                 cartItems.length !== 0 ?
                 <div>
-                    {
-                        cartItems.map((x, i) =>{
-                            return(
-                                <CartItem
-                                    key={i}
-                                    product={x}
-                                />
-                            ) 
-                        })
-                    }
+                    <Row>
+                        <Col md={8}>
+                            {
+                                cartItems.map((x, i) =>{
+                                    return(
+                                        <CartItem
+                                            key={i}
+                                            product={x}
+                                        />
+                                    ) 
+                                })
+                            }
+                        </Col>
+                        <Col md={4} className='cartContainerPrice'>
+                            <h3>Precio Total: <span className='totalPrice'>${functions.getTotal()}</span></h3>
+                            <Button variant='none' className="cartButton" onClick={functions.clear}>Limpiar</Button>
+                            <Button variant='none' className='cartButton'><Link to={process.env.PUBLIC_URL + "/"} className='cartButtonLink'>Agregar más productos</Link></Button>
+                            
+                        </Col>
+                    </Row>
                     <div className='cartContainerBottom'>
-                        <Row>
-                            <Col md={6} className='cartContainerPrice'>
-                                <h3>Precio Total: <span className='totalPrice'>${functions.getTotal()}</span></h3>
-                                <Button variant='none' className="cartButton" onClick={functions.clear}>Limpiar</Button>
-                                <Button variant='none' className='cartButton'><Link to={process.env.PUBLIC_URL + "/"} className='cartButtonLink'>Agregar más productos</Link></Button>
-                            </Col>
-                            <Col md={6}>
-                                <CartForm/>
-                            </Col>
-                        </Row>
+                        <CartForm/>
                     </div>
                 </div>
                 :
