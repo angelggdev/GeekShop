@@ -166,7 +166,15 @@ The context __cartContext.js__ provides several functions to allow the user to b
 It also provides variables:
 
 -__cartItems__ : array that stores the items that the user wants to buy.
+
+
 -__badge__: variable that stores the number of items in the cart.
+
+
 -__sendingOrder__: variable that stores a boolean value that indicates whether and order is being created or not.
+
+
 -__notification__: variable that stores a message of success or error that will be shown after the order is created.
+
+
 -__showModal__: variable that stores a boolean value that indicates whether the modal with the notification has to be shown or not.
