@@ -5,6 +5,7 @@
 - ReactJs
 - React-Bootstrap
 - Firebase
+- Formik
 
 ## Views
 
