@@ -39,10 +39,7 @@ const CartForm = (props) => {
         }
 
         if(Object.keys(errors).length === 0 
-            && formik.touched.name
-            && formik.touched.email
-            && formik.touched.emailCopy
-            && formik.touched.phone) {
+            && formik.touched.name) {
             setDisableSubmit(false);
         }
 

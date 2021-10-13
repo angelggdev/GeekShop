@@ -62,6 +62,7 @@ export const getDocuments = (col, isOneItem, filter, operator, compareTo) => {
     })
 }
 
+
 export const createOrder = (name, phone, email, products, totalPrice) => {
     return new Promise ((resolve, reject) => {
         const items = []
@@ -100,27 +101,25 @@ export const createOrder = (name, phone, email, products, totalPrice) => {
                     outOfStock.push({...DocumentSnapshot.data(), id: DocumentSnapshot.id})
                 }
             })
-            .then(() => {
-                let notification;
-                let error;
-                if(outOfStock.length === 0){
-                    addDoc(collection(db, 'orders'), orderToSave)
-                    .then((res) => {
-                        batch.commit()
-                        .then(() => {
-                            notification = `¡La orden se ha ejecutado con éxito! El id de su orden es ${res.id}`;
-                            resolve(notification);
-                        })
-                        .catch((err) => {
-                            error = err;
-                            reject(`¡Oops! Hubo un error al procesar la orden, error: ${error}`)
-                        })
-                    })
-                } else {
-                    notification = `¡Oops! Parece que nos quedamos sin stock ${outOfStock.length >1? `de los productos ${outOfStock.map((x, i) => `${x.title}, `)}` : `del producto ${outOfStock[0].title}`}. ¡Lo sentimos mucho!`;
-                    resolve(notification);
-                }
-            })
         })
+
+        let notification;
+        if(outOfStock.length === 0){
+            addDoc(collection(db, 'orders'), orderToSave)
+            .then((res) => {
+                batch.commit()
+                .then(() => {
+                    notification = '¡La orden se ha ejecutado con éxito!' + <br/> + `El id de su orden es ${res.id}`;
+                    resolve(notification);
+                })
+            })
+            .catch((err) => {
+                reject(`¡Oops! Hubo un error al procesar la orden, por favor intente de nuevo`)
+                console.log(err);
+            })
+        } else {
+            notification = `¡Oops! Parece que nos quedamos sin stock ${outOfStock.length >1? `de los productos ${outOfStock.map((x, i) => `${x.title}, `)}` : `del producto ${outOfStock[0].title}`}. ¡Lo sentimos mucho!`;
+            resolve(notification);
+        }        
     })
 }

@@ -72,14 +72,14 @@ export const CartProvider = ({children}) => {
         createOrder(name, phone, email, cartItems, getTotal())
         .then((res) => {
             setNotification(res);
+            setCartItems([]);
+            setBadge(0);
         })  
         .catch((err) => {
             setNotification(err);
         })          
         .finally(() => {
             setSendingOrder(false);
-            setCartItems([]);
-            setBadge(0);
             setShowModal(true);
         })
     }
