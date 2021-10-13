@@ -109,7 +109,7 @@ export const createOrder = (name, phone, email, products, totalPrice) => {
             .then((res) => {
                 batch.commit()
                 .then(() => {
-                    notification = '¡La orden se ha ejecutado con éxito!' + <br/> + `El id de su orden es ${res.id}`;
+                    notification = <p>¡La orden se ha ejecutado con éxito! <br /> El id de su orden es {res.id}</p>;
                     resolve(notification);
                 })
             })
