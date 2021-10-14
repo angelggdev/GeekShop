@@ -63,11 +63,11 @@ Any other route will render the Error component, letting the user know that an e
 
 ### ItemList
 
-    Component that maps the items of the catalogue and renders one Item component for every item.
+    Component that maps the catalogue's items and renders one Item component for every item.
 
 ### Item
 
-    Component that renders the data of an item.
+    Component that renders the item's data.
 
 ### ItemDetailContainer
 
@@ -76,7 +76,7 @@ Any other route will render the Error component, letting the user know that an e
 
 ### ItemDetail
 
-    Component that render the details of an item.
+    Component that renders the details of an item.
 
 ### ItemCount
 
@@ -85,12 +85,12 @@ Any other route will render the Error component, letting the user know that an e
 ### Cart
 
     Component that renders the Cart View.
-    It render the CartForm, CartItem and NotificationModal components.
-    It maps the cartItems array and render one CartItem component for each item in the array.
+    It renders the CartForm, CartItem and NotificationModal components.
+    It maps the cartItems array and renders one CartItem component for each item in the array.
 
 ### CartForm
 
-    Component that render the form that the user has to fill to create an order.
+    Component that renders the form that the user has to fill to create an order.
     It uses the function saveOrder from the cartContext to create an order.
 
 ### CartItem
