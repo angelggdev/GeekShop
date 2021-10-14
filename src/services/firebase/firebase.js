@@ -103,19 +103,8 @@ export const createOrder = (name, phone, email, products, totalPrice) => {
                     }
                 })
             }
-            /* orderToSave.items.forEach((prod, i) => {
-                getDoc(doc(db, 'items', prod.id))
-                .then(DocumentSnapshot => {
-                    if(DocumentSnapshot.data().stock >= orderToSave.items[i].quantity) {
-                        batch.update(doc(db, 'items', DocumentSnapshot.id), {
-                            stock: DocumentSnapshot.data().stock - orderToSave.items[i].quantity
-                        })
-                    } else {
-                        outOfStock.push({...DocumentSnapshot.data(), id: DocumentSnapshot.id})
-                    }
-                })
-            }) */
         }
+        
         checkStock()
         .then(() => {
             let notification;
