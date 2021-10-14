@@ -71,12 +71,14 @@ export const CartProvider = ({children}) => {
         setSendingOrder(true)
         createOrder(name, phone, email, cartItems, getTotal())
         .then((res) => {
-            setNotification(res);
-            setCartItems([]);
-            setBadge(0);
+            setNotification(res[1]);
+            if (res[0] === 'success'){
+                setCartItems([]);
+                setBadge(0);
+            }
         })  
         .catch((err) => {
-            setNotification(err);
+            setNotification(err[1]);
         })          
         .finally(() => {
             setSendingOrder(false);

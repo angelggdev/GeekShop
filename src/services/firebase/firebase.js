@@ -90,36 +90,51 @@ export const createOrder = (name, phone, email, products, totalPrice) => {
         const batch = writeBatch(db);
         const outOfStock = [];
     
-        orderToSave.items.forEach((prod, i) => {
-            getDoc(doc(db, 'items', prod.id))
-            .then(DocumentSnapshot => {
-                if(DocumentSnapshot.data().stock >= orderToSave.items[i].quantity) {
-                    batch.update(doc(db, 'items', DocumentSnapshot.id), {
-                        stock: DocumentSnapshot.data().stock - orderToSave.items[i].quantity
-                    })
-                } else {
-                    outOfStock.push({...DocumentSnapshot.data(), id: DocumentSnapshot.id})
-                }
-            })
-        })
-
-        let notification;
-        if(outOfStock.length === 0){
-            addDoc(collection(db, 'orders'), orderToSave)
-            .then((res) => {
-                batch.commit()
-                .then(() => {
-                    notification = <p>¡La orden se ha ejecutado con éxito! <br /> El id de su orden es {res.id}</p>;
-                    resolve(notification);
+        async function checkStock () {
+            for (const item of orderToSave.items) {
+                await getDoc(doc(db, 'items', item.id))
+                .then(DocumentSnapshot => {
+                    if(DocumentSnapshot.data().stock >= item.quantity) {
+                        batch.update(doc(db, 'items', DocumentSnapshot.id), {
+                            stock: DocumentSnapshot.data().stock - item.quantity
+                        })
+                    } else {
+                        outOfStock.push({...DocumentSnapshot.data(), id: DocumentSnapshot.id})
+                    }
                 })
-            })
-            .catch((err) => {
-                reject(`¡Oops! Hubo un error al procesar la orden, por favor intente de nuevo`)
-                console.log(err);
-            })
-        } else {
-            notification = `¡Oops! Parece que nos quedamos sin stock ${outOfStock.length >1? `de los productos ${outOfStock.map((x, i) => `${x.title}, `)}` : `del producto ${outOfStock[0].title}`}. ¡Lo sentimos mucho!`;
-            resolve(notification);
-        }        
+            }
+            /* orderToSave.items.forEach((prod, i) => {
+                getDoc(doc(db, 'items', prod.id))
+                .then(DocumentSnapshot => {
+                    if(DocumentSnapshot.data().stock >= orderToSave.items[i].quantity) {
+                        batch.update(doc(db, 'items', DocumentSnapshot.id), {
+                            stock: DocumentSnapshot.data().stock - orderToSave.items[i].quantity
+                        })
+                    } else {
+                        outOfStock.push({...DocumentSnapshot.data(), id: DocumentSnapshot.id})
+                    }
+                })
+            }) */
+        }
+        checkStock()
+        .then(() => {
+            let notification;
+            if(outOfStock.length === 0){
+                addDoc(collection(db, 'orders'), orderToSave)
+                .then((res) => {
+                    batch.commit()
+                    .then(() => {
+                        notification = <p>¡La orden se ha ejecutado con éxito! <br /> El id de su orden es {res.id}</p>;
+                        resolve(['success', notification]);
+                    })
+                })
+                .catch((err) => {
+                    reject(['error', `¡Oops! Hubo un error al procesar la orden, por favor intente de nuevo`])
+                })
+            } else {
+                notification = `¡Oops! Parece que nos quedamos sin stock ${outOfStock.length >1? `de los productos ${outOfStock.map((x, i) => `${x.title}, `)}` : `del producto ${outOfStock[0].title}`}. ¡Lo sentimos mucho!`;
+                resolve(['error', notification]);
+            }        
+        })
     })
 }

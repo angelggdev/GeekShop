@@ -63,7 +63,7 @@ nav{
 }
 .current{
     background:radial-gradient(#be0010,#E60012);
-    border-radius:10px;
+    border-radius:20px;
 }
 
 @media screen and (max-width:767px){
