@@ -41,6 +41,8 @@ const CartForm = (props) => {
         if(Object.keys(errors).length === 0 
             && formik.touched.name) {
             setDisableSubmit(false);
+        } else {
+            setDisableSubmit(true);
         }
 
         return errors;
@@ -140,7 +142,7 @@ const CartForm = (props) => {
                         </Form.Group>
                         <Button
                             variant={ disableSubmit? "dark" : "none"}
-                            disabled={ disableSubmit ? true: false}
+                            disabled={disableSubmit}
                             type="submit" 
                             className="submit"
                         >
