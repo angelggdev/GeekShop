@@ -120,6 +120,15 @@ const CartForm = (props) => {
                                 placeholder='nombre@gmail.com' 
                                 type="email"
                                 className='input'
+                                onPaste={(e)=>{
+                                    e.preventDefault()
+                                    return false;
+                                }} 
+                                onCopy={(e)=>{
+                                    e.preventDefault()
+                                    return false;
+                                }}
+                                autocomplete="off"
                             />
                         </Form.Group>
                         <Form.Group>
