@@ -18,7 +18,7 @@ const ItemListContainer = (props) =>{
             setItemList(res);
         })
         .catch((error) =>{
-            console.log(error);
+            console.log('Error searching items', error);
         })
         .finally(() => {
             setLoading(false);

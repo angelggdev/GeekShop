@@ -14,7 +14,6 @@ const ItemDetailContainer = (props) =>{
         setLoading(true);
         getDocuments('items', true, false, false, id)
         .then((res) => {
-            console.log(res)
             setProductView(res); 
         })
         .catch((error) => {
