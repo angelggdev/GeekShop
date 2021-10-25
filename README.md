@@ -123,6 +123,7 @@ Any other route will render the Error component, letting the user know that an e
 ### Firebase
 
 The service __firebase.js__ provides the functions needed to interact with Cloud Firestore in order to obtain information from the database.
+In order to use the firebase service you need to provide your own credentials in an .env file. The format of this file is left in the .env.example file of the repository.
 
 - __getDocuments__:
     
