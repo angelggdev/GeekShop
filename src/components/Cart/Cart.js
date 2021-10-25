@@ -1,10 +1,10 @@
 import './Cart.css';
 import {useContext} from 'react';
 import CartContext from '../../context/cartContext';
-import CartItem from './cartItem/CartItem';
-import CartForm from './cartForm/CartForm';
+import CartItem from './CartItem/CartItem';
+import CartForm from './CartForm/CartForm';
 import { Link } from 'react-router-dom';
-import NotificationModal from './notificationModal/NotificationModal';
+import NotificationModal from './NotificationModal/NotificationModal';
 import { Container, Col, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button'
 

@@ -1,14 +1,14 @@
 import './App.css';
-import NavBar from './components/navBar/NavBar';
+import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer.js';
-import ItemListContainer from './components/itemListContainer/ItemListContainer';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { CartProvider } from './context/cartContext';
-import Cart from './components/cart/Cart';
-import About from './components/about/About';
-import Contact from './components/contact/Contact';
-import Error from './components/error/Error';
+import Cart from './components/Cart/Cart';
+import About from './components/About/About';
+import Contact from './components/Contact/Contact';
+import Error from './components/Error/Error';
 
 
 function App() {

@@ -1,5 +1,5 @@
 import './Item.css';
-import ItemCount from '../../../itemCount/ItemCount';
+import ItemCount from '../../../ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { faEye } from '@fortawesome/free-solid-svg-icons';

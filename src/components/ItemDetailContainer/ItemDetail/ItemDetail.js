@@ -1,5 +1,5 @@
 import './ItemDetail.css';
-import ItemCount from '../../itemCount/ItemCount';
+import ItemCount from '../../ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
 import {useState} from 'react';
 import Button from 'react-bootstrap/Button'

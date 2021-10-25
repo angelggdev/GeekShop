@@ -1,5 +1,5 @@
 import './NavMobile.css';
-import NavLinks from '../navLinks/NavLinks';
+import NavLinks from '../NavLinks/NavLinks';
 import { useState } from 'react';
 import { Button, Offcanvas } from 'react-bootstrap';
 import { faBars } from '@fortawesome/free-solid-svg-icons';

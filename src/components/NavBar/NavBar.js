@@ -1,7 +1,7 @@
 import Logo from '../../assets/logo.png';
-import CartWidget from './cartWidget/CartWidget';
-import NavLinks from './navLinks/NavLinks';
-import NavMobile from './navMobile/NavMobile';
+import CartWidget from './CartWidget/CartWidget';
+import NavLinks from './NavLinks/NavLinks';
+import NavMobile from './NavMobile/NavMobile';
 import './NavBar.css';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
