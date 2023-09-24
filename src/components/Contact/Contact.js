@@ -19,21 +19,21 @@ const Contact = () => {
                     <Form>
                         <Form.Group>
                             <Form.Label>Nombre y apellido</Form.Label>
-                            <Form.Control type="text" className="input" controlId="nameInput"/>
+                            <Form.Control type="text" className="input" id="nameInput"/>
                         </Form.Group>
                         <Form.Group>
                             <Form.Label>E-mail</Form.Label>
-                            <Form.Control type="email" className="input" controlId="emailInput"/>
+                            <Form.Control type="email" className="input" id="emailInput"/>
                         </Form.Group>
                         <Form.Group>
                             <Form.Label>Asunto</Form.Label>
-                            <Form.Control type="text" className="input" controlId="subjectInput"/>
+                            <Form.Control type="text" className="input" id="subjectInput"/>
                         </Form.Group>
                         <Form.Group>
                             <Form.Label>Mensaje</Form.Label>
-                            <Form.Control as='textarea' cols="40" rows="5" className="input" controlId="message"></Form.Control>
+                            <Form.Control as='textarea' cols="40" rows="5" className="input" id="message"></Form.Control>
                         </Form.Group>
-                        <Button variant='none' onClick={Submit} type="submit" className="submit" controlId="submit">Enviar</Button>
+                        <Button variant='none' onClick={Submit} type="submit" className="submit" id="submit">Enviar</Button>
                     </Form>
                 </Col>
                 <Col as='aside' xs={12} md={3} className="contactDataContact">
